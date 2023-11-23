@@ -251,7 +251,9 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\HangHoaController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\Controllers\NCCController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SanPhamController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -287,10 +289,15 @@
     <Compile Include="Models\HangHoa.cs">
       <DependentUpon>DCCoffeeModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Metadata\NCCMetada.cs" />
+    <Compile Include="Models\HangHoaMetadata.cs" />
+    <Compile Include="Models\Metadata\HangHoaMetadata.cs" />
+    <Compile Include="Models\Metadata\NCCMetadata.cs" />
+    <Compile Include="Models\Metadata\SanPhamMetadata.cs" />
+    <Compile Include="Models\Metadata\UserMetadata.cs" />
     <Compile Include="Models\NCC.cs">
       <DependentUpon>DCCoffeeModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\NCCMetadata.cs" />
     <Compile Include="Models\NguoiDung.cs">
       <DependentUpon>DCCoffeeModel.tt</DependentUpon>
     </Compile>
@@ -303,9 +310,11 @@
     <Compile Include="Models\SanPham.cs">
       <DependentUpon>DCCoffeeModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\SanPhamMetadata.cs" />
     <Compile Include="Models\sysdiagrams.cs">
       <DependentUpon>DCCoffeeModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\UserMetadata.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -343,6 +352,17 @@
     <Content Include="Content\User\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\User\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\User\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Areas\Admin\Views\NCC\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\NCC\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\NCC\Update.cshtml" />
+    <Content Include="Areas\Admin\Views\NCC\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\HangHoa\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\SanPham\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\HangHoa\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\HangHoa\Update.cshtml" />
+    <Content Include="Areas\Admin\Views\HangHoa\Delete.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_LayoutUser.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -356,9 +376,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
-    <Folder Include="Areas\Admin\Views\HangHoa\" />
-    <Folder Include="Areas\Admin\Views\NCC\" />
-    <Folder Include="Areas\Admin\Views\User\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

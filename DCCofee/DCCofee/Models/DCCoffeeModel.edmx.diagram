@@ -5,27 +5,27 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="b0c8ea1bf9a34873ac8d0a7ec802558d" Name="Diagram1" ZoomLevel="74">
-        <EntityTypeShape EntityType="QLQCFModel.CTDH" Width="1.5" PointX="5.25" PointY="4.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLQCFModel.CTPN" Width="1.5" PointX="8.25" PointY="8.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLQCFModel.CTPX" Width="1.5" PointX="5.25" PointY="12" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLQCFModel.DONHANG" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLQCFModel.HangHoa" Width="1.5" PointX="6" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLQCFModel.NCC" Width="1.5" PointX="3.75" PointY="8.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLQCFModel.NguoiDung" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLQCFModel.PHIEUNHAP" Width="1.5" PointX="6" PointY="7.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLQCFModel.PHIEUXUAT" Width="1.5" PointX="3" PointY="11.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLQCFModel.SanPham" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLQCFModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="4.25" IsExpanded="true" />
-        <AssociationConnector Association="QLQCFModel.FK__CTDH__IdDH__08B54D69" ManuallyRouted="false" />
-        <AssociationConnector Association="QLQCFModel.FK__CTDH__IdSP__09A971A2" ManuallyRouted="false" />
-        <AssociationConnector Association="QLQCFModel.FK__CTPN__IdH__7A672E12" ManuallyRouted="false" />
-        <AssociationConnector Association="QLQCFModel.FK__CTPN__IdPN__797309D9" ManuallyRouted="false" />
-        <AssociationConnector Association="QLQCFModel.FK__CTPX__IdH__01142BA1" ManuallyRouted="false" />
-        <AssociationConnector Association="QLQCFModel.FK__CTPX__IdPX__00200768" ManuallyRouted="false" />
-        <AssociationConnector Association="QLQCFModel.FK__DONHANG__IdNV__05D8E0BE" ManuallyRouted="false" />
-        <AssociationConnector Association="QLQCFModel.FK__PHIEUNHAP__IdNCC__75A278F5" ManuallyRouted="false" />
-        <AssociationConnector Association="QLQCFModel.FK__PHIEUNHAP__IdNV__76969D2E" ManuallyRouted="false" />
-        <AssociationConnector Association="QLQCFModel.FK__PHIEUXUAT__IdNV__7D439ABD" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="QLQCFModel.CTDH" Width="1.5" PointX="5.25" PointY="4.5" />
+        <EntityTypeShape EntityType="QLQCFModel.CTPN" Width="1.5" PointX="8.25" PointY="8.125" />
+        <EntityTypeShape EntityType="QLQCFModel.CTPX" Width="1.5" PointX="5.25" PointY="12" />
+        <EntityTypeShape EntityType="QLQCFModel.DONHANG" Width="1.5" PointX="3" PointY="4.625" />
+        <EntityTypeShape EntityType="QLQCFModel.HangHoa" Width="1.5" PointX="6" PointY="0.875" />
+        <EntityTypeShape EntityType="QLQCFModel.NCC" Width="1.5" PointX="3.75" PointY="8.125" />
+        <EntityTypeShape EntityType="QLQCFModel.NguoiDung" Width="1.5" PointX="0.75" PointY="5.5" />
+        <EntityTypeShape EntityType="QLQCFModel.PHIEUNHAP" Width="1.5" PointX="6" PointY="7.875" />
+        <EntityTypeShape EntityType="QLQCFModel.PHIEUXUAT" Width="1.5" PointX="3" PointY="11.125" />
+        <EntityTypeShape EntityType="QLQCFModel.SanPham" Width="1.5" PointX="3" PointY="0.75" />
+        <EntityTypeShape EntityType="QLQCFModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="4.25" />
+        <AssociationConnector Association="QLQCFModel.FK__CTDH__IdDH__08B54D69" />
+        <AssociationConnector Association="QLQCFModel.FK__CTDH__IdSP__09A971A2" />
+        <AssociationConnector Association="QLQCFModel.FK__CTPN__IdH__7A672E12" />
+        <AssociationConnector Association="QLQCFModel.FK__CTPN__IdPN__797309D9" />
+        <AssociationConnector Association="QLQCFModel.FK__CTPX__IdH__01142BA1" />
+        <AssociationConnector Association="QLQCFModel.FK__CTPX__IdPX__00200768" />
+        <AssociationConnector Association="QLQCFModel.FK__DONHANG__IdNV__05D8E0BE" />
+        <AssociationConnector Association="QLQCFModel.FK__PHIEUNHAP__IdNCC__75A278F5" />
+        <AssociationConnector Association="QLQCFModel.FK__PHIEUNHAP__IdNV__76969D2E" />
+        <AssociationConnector Association="QLQCFModel.FK__PHIEUXUAT__IdNV__7D439ABD" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

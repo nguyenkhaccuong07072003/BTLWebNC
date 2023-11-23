@@ -144,8 +144,8 @@ D:\WebNC\BTLWebNC\DCCofee\DCCofee\bin\System.Web.Webpages.Razor.xml
 D:\WebNC\BTLWebNC\DCCofee\DCCofee\bin\System.Web.Helpers.xml
 D:\WebNC\BTLWebNC\DCCofee\DCCofee\bin\System.Web.Mvc.xml
 D:\WebNC\BTLWebNC\DCCofee\DCCofee\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\WebNC\BTLWebNC\DCCofee\DCCofee\obj\Debug\DCCofee.csproj.AssemblyReference.cache
 D:\WebNC\BTLWebNC\DCCofee\DCCofee\obj\Debug\DCCofee.csproj.CoreCompileInputs.cache
 D:\WebNC\BTLWebNC\DCCofee\DCCofee\obj\Debug\DCCofee.csproj.CopyComplete
 D:\WebNC\BTLWebNC\DCCofee\DCCofee\obj\Debug\DCCofee.dll
 D:\WebNC\BTLWebNC\DCCofee\DCCofee\obj\Debug\DCCofee.pdb
+D:\WebNC\BTLWebNC\DCCofee\DCCofee\obj\Debug\DCCofee.csproj.AssemblyReference.cache

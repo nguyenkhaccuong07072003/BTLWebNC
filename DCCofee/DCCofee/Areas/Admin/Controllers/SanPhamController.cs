@@ -7,14 +7,14 @@ using System.Web.Mvc;
 
 namespace DCCofee.Areas.Admin.Controllers
 {
-    public class UserController : Controller
+    public class SanPhamController : Controller
     {
         QLQCFEntities db = new QLQCFEntities();
-        // GET: Admin/User
+        // GET: Admin/SanPham
         public ActionResult Index()
         {
-            List<NguoiDung> user = db.NguoiDung.ToList();
-            return View(user);
+            List<SanPham> sp = db.SanPham.ToList();
+            return View(sp);
         }
     }
 }
