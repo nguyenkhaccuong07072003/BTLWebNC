@@ -363,6 +363,8 @@
     <Content Include="Areas\Admin\Views\HangHoa\Create.cshtml" />
     <Content Include="Areas\Admin\Views\HangHoa\Update.cshtml" />
     <Content Include="Areas\Admin\Views\HangHoa\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\SanPham\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\SanPham\Update.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_LayoutUser.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -376,6 +378,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Assets\Upload\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

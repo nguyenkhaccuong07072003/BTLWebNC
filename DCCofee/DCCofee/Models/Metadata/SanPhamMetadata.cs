@@ -19,9 +19,9 @@ namespace DCCofee.Models.Metadata
         public string Mota { get; set; }
         [DisplayName("Đơn giá")]
         [Required(ErrorMessage = " Vui lòng nhập đơn giá")]
+        [DisplayFormat(DataFormatString = "{0:0,000}")]
         public Nullable<double> DonGia { get; set; }
         [DisplayName("Ảnh sản phẩm")]
-/*        [Required(ErrorMessage = " Vui lòng nhập ảnh sản phẩm")]*/
         public string AnhSP { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

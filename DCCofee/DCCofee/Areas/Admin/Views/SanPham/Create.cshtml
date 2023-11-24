@@ -1,16 +1,18 @@
-﻿@model DCCofee.Models.HangHoa
+﻿@model DCCofee.Models.SanPham
 
 @{
-    ViewBag.Title = "Update";
+    ViewBag.Title = "Create";
     Layout = "~/Areas/Admin/Views/Shared/LayoutAd.cshtml";
 }
+
+
 
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>DCCofee | Sửa hàng hóa</title>
+    <title>DCCofee | Thêm sản phẩm</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
@@ -46,12 +48,12 @@
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <h1>
-                    Hàng hóa
+                    Sản phẩm
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="/Admin/Home/Index"><i class="fa fa-dashboard"></i> Home</a></li>
-                    <li><a href="/Admin/Hàng hóa/Index">Hàng hóa</a></li>
-                    <li class="active">Sửa</li>
+                    <li><a href="/Admin/SanPham/Index">SanPham</a></li>
+                    <li class="active">Thêm</li>
                 </ol>
             </section>
 
@@ -59,12 +61,11 @@
             <section class="content">
                 <!-- SELECT2 EXAMPLE -->
                 <div class="box box-primary">
-                    <form method="post" action="/Admin/HangHoa/Update" enctype="multipart/form-data">
+                    <form method="post" action="/Admin/SanPham/Create" enctype="multipart/form-data">
                         <div class="box-header with-border">
-                            <h2 class="box-title">Sửa hàng hóa</h2>
+                            <h2 class="box-title">Thêm sản phẩm</h2>
                             <div class="box-tools pull-right">
                                 <button class="btn btn-info btn-sm" type="submit"><i class="fa fa-check"></i> Lưu</button>
-                                @*<button class="btn btn-default btn-sm" type="reset"><i class="fa fa-refresh"></i> Reset</button>*@
                             </div>
                         </div><!-- /.box-header -->
                         <div class="box-body">
@@ -75,52 +76,43 @@
                                         {
                                             @Html.AntiForgeryToken()
 
-                                        <div class="form-horizontal">
-                                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                                            @Html.HiddenFor(model => model.Id)
-
-                                            <div class="form-group">
-                                                @Html.LabelFor(model => model.TenH, htmlAttributes: new { @class = "control-label col-md-2" })
-                                                <div class="col-md-10">
-                                                    @Html.EditorFor(model => model.TenH, new { htmlAttributes = new { @class = "form-control" } })
-                                                    @Html.ValidationMessageFor(model => model.TenH, "", new { @class = "text-danger" })
+                                            <div class="form-horizontal">
+                                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.TenSP, htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-10">
+                                                        @Html.EditorFor(model => model.TenSP, new { htmlAttributes = new { @class = "form-control" } })
+                                                        @Html.ValidationMessageFor(model => model.TenSP, "", new { @class = "text-danger" })
+                                                    </div>
                                                 </div>
-                                            </div>
 
-                                            <div class="form-group">
-                                                @Html.LabelFor(model => model.SoLuong, htmlAttributes: new { @class = "control-label col-md-2" })
-                                                <div class="col-md-10">
-                                                    @Html.EditorFor(model => model.SoLuong, new { htmlAttributes = new { @class = "form-control" } })
-                                                    @Html.ValidationMessageFor(model => model.SoLuong, "", new { @class = "text-danger" })
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.Mota, htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-10">
+                                                        @Html.EditorFor(model => model.Mota, new { htmlAttributes = new { @class = "form-control" } })
+                                                        @Html.ValidationMessageFor(model => model.Mota, "", new { @class = "text-danger" })
+                                                    </div>
                                                 </div>
-                                            </div>
 
-                                            <div class="form-group">
-                                                @Html.LabelFor(model => model.HSD, htmlAttributes: new { @class = "control-label col-md-2" })
-                                                <div class="col-md-10">
-                                                    @Html.TextBoxFor(model => model.HSD, "{0:dd/MM/yyyy}", new { @class = "form-control", @id = "HSD" })
-                                                    @Html.ValidationMessageFor(model => model.HSD, "", new { @class = "text-danger" })
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.DonGia, htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-10">
+                                                        @Html.EditorFor(model => model.DonGia, new { htmlAttributes = new { @class = "form-control" } })
+                                                        @Html.ValidationMessageFor(model => model.DonGia, "", new { @class = "text-danger" })
+                                                    </div>
                                                 </div>
-                                            </div>
 
-                                            <div class="form-group">
-                                                @Html.LabelFor(model => model.DonViTinh, htmlAttributes: new { @class = "control-label col-md-2" })
-                                                <div class="col-md-10">
-                                                    @Html.EditorFor(model => model.DonViTinh, new { htmlAttributes = new { @class = "form-control" } })
-                                                    @Html.ValidationMessageFor(model => model.DonViTinh, "", new { @class = "text-danger" })
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.AnhSP, htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-10">
+                                                        <input type="file" name="fImage" style="margin-top:5px"/>
+@*                                                        @Html.EditorFor(model => model.AnhSP, new { htmlAttributes = new { @class = "form-control" } })
+                                                        @Html.ValidationMessageFor(model => model.AnhSP, "", new { @class = "text-danger" })*@
+                                                    </div>
                                                 </div>
-                                            </div>
 
-                                            <div class="form-group">
-                                                @Html.LabelFor(model => model.DonGia, htmlAttributes: new { @class = "control-label col-md-2" })
-                                                <div class="col-md-10">
-                                                    @Html.EditorFor(model => model.DonGia, "{0:0,000}", new { htmlAttributes = new { @class = "form-control" } })
-                                                    @Html.ValidationMessageFor(model => model.DonGia, "", new { @class = "text-danger" })
-                                                </div>
                                             </div>
-                                        </div>
                                         }
-
                                     </div><!-- /.tab-pane -->
                                 </div><!-- /.tab-content -->
                             </div>

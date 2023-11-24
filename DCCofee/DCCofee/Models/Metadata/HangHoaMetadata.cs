@@ -19,12 +19,15 @@ namespace DCCofee.Models.Metadata
         public Nullable<int> SoLuong { get; set; }
         [DisplayName("Hạn sử dụng")]
         [Required(ErrorMessage = " Vui lòng nhập hạn sử dụng")]
-        public Nullable<System.DateTime> HSD { get; set; }
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        [DataType(DataType.Date)]
+        public Nullable<System.DateTime> HSD { get; set; } = DateTime.Now;
         [DisplayName("Đơn vị tính")]
         [Required(ErrorMessage = " Vui lòng nhập đơn vị tính")]
         public string DonViTinh { get; set; }
         [DisplayName("Đơn giá")]
         [Required(ErrorMessage = " Vui lòng nhập đơn giá")]
+        [DisplayFormat(DataFormatString = "{0:0,000}")]
         public Nullable<double> DonGia { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
