@@ -206,6 +206,7 @@
     <Content Include="Content\User\images\products\small\products-05.png" />
     <Content Include="Content\User\images\products\small\products-06.png" />
     <Content Include="Content\User\images\products\small\products-07.png" />
+    <Content Include="Content\User\images\products\small\rs cf espresso %281%29.jpg" />
     <Content Include="Content\User\images\products\thum\products-01.png" />
     <Content Include="Content\User\images\products\thum\products-02.png" />
     <Content Include="Content\User\images\products\thum\products-03.png" />
@@ -255,7 +256,9 @@
     <Compile Include="Areas\Admin\Controllers\NCCController.cs" />
     <Compile Include="Areas\Admin\Controllers\SanPhamController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserController.cs" />
+    <Compile Include="Controllers\DanhMucController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LienHeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -366,6 +369,8 @@
     <None Include="packages.config" />
     <Content Include="Views\Shared\_LayoutUser.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\DanhMuc\Index.cshtml" />
+    <Content Include="Views\LienHe\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
