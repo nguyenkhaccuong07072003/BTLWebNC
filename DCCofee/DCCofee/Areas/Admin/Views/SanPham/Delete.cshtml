@@ -1,4 +1,4 @@
-﻿@model DCCofee.Models.NCC
+﻿@model DCCofee.Models.SanPham
 
 @{
     ViewBag.Title = "Delete";
@@ -6,13 +6,12 @@
 }
 
 
-
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>DCCofee | Xóa nhà cung cấp</title>
+    <title>DCCofee | Xóa sản phẩm</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
@@ -48,11 +47,11 @@
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <h1>
-                    Xóa nhà cung cấp
+                    Xóa sản phẩm
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="/Admin/Home/Index"><i class="fa fa-dashboard"></i> Home</a></li>
-                    <li><a href="/Admin/NCC/Index">Nhà cung cấp</a></li>
+                    <li><a href="/Admin/SanPham/Index">Sản phẩm</a></li>
                     <li class="active">Xóa</li>
                 </ol>
             </section>
@@ -61,7 +60,7 @@
             <section class="content">
                 <!-- SELECT2 EXAMPLE -->
                 <div class="box box-primary">
-                    <form method="post" action="/Admin/NCC/Delete" enctype="multipart/form-data">
+                    <form method="post" action="/Admin/SanPham/Delete" enctype="multipart/form-data">
                         <div class="box-header with-border">
                             @*<h2 class="box-title"></h2>*@
                             <h3>Bạn có chắc là muốn xóa không?</h3>
@@ -77,46 +76,48 @@
                                         <div>
                                             <dl class="dl-horizontal">
                                                 <dt>
-                                                    @Html.DisplayNameFor(model => model.TenNCC)
+                                                    @Html.DisplayNameFor(model => model.TenSP)
                                                 </dt>
 
                                                 <dd>
-                                                    @Html.DisplayFor(model => model.TenNCC)
+                                                    @Html.DisplayFor(model => model.TenSP)
                                                 </dd>
 
                                                 <dt>
-                                                    @Html.DisplayNameFor(model => model.DiaChi)
+                                                    @Html.DisplayNameFor(model => model.Mota)
                                                 </dt>
 
                                                 <dd>
-                                                    @Html.DisplayFor(model => model.DiaChi)
+                                                    @Html.DisplayFor(model => model.Mota)
                                                 </dd>
 
                                                 <dt>
-                                                    @Html.DisplayNameFor(model => model.Sdt)
+                                                    @Html.DisplayNameFor(model => model.DonGia)
                                                 </dt>
 
                                                 <dd>
-                                                    @Html.DisplayFor(model => model.Sdt)
+                                                    @Html.DisplayFor(model => model.DonGia)
                                                 </dd>
 
                                                 <dt>
-                                                    @Html.DisplayNameFor(model => model.Email)
+                                                    @Html.DisplayNameFor(model => model.AnhSP)
                                                 </dt>
 
                                                 <dd>
-                                                    @Html.DisplayFor(model => model.Email)
+                                                    @*@Html.DisplayFor(model => model.AnhSP)*@
+                                                    @ViewBag.ImageFileName
                                                 </dd>
 
                                             </dl>
 
-                                            @using (Html.BeginForm("Delete", "NCC", FormMethod.Post))
+                                            @using (Html.BeginForm("Delete", "SanPham", FormMethod.Post))
                                             {
                                                 @Html.AntiForgeryToken()
                                                 @Html.HiddenFor(Model => Model.Id)
+
                                                 <div class="form-actions no-color">
                                                     <input type="submit" value="Xóa" class="btn btn-default" /> hoặc
-                                                    <a class="btn btn-default" href="/Admin/NCC/Index">Quay lại</a>
+                                                    <a class="btn btn-default" href="/Admin/SanPham/Index">Quay lại</a>
                                                 </div>
                                             }
                                         </div>

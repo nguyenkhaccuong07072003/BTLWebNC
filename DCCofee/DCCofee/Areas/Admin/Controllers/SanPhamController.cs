@@ -46,6 +46,7 @@ namespace DCCofee.Areas.Admin.Controllers
         public ActionResult Update(int id)
         {
             var obj = db.SanPham.Find(id);
+            ViewBag.ImageFileName = System.IO.Path.GetFileName(obj.AnhSP);
             return View(obj);
         }
         [HttpPost]
@@ -58,9 +59,9 @@ namespace DCCofee.Areas.Admin.Controllers
                 if (fImage != null && fImage.ContentLength > 0)
                 {
                     string fileName = fImage.FileName;
-                    string folderName = Server.MapPath("~/Assets/Uploads/" + fileName);
+                    string folderName = Server.MapPath("~/Assets/Upload/" + fileName);
                     fImage.SaveAs(folderName);
-                    masp.AnhSP = "/Assets/Uploads/" + fileName;
+                    masp.AnhSP = "/Assets/Upload/" + fileName;
                 }
                 masp.TenSP = obj.TenSP;
                 masp.Mota = obj.Mota;
@@ -70,6 +71,25 @@ namespace DCCofee.Areas.Admin.Controllers
             catch { }
             return RedirectToAction("Index");
         }
+        [HttpGet]
+        public ActionResult Delete(int id)
+        {
+            var obj = db.SanPham.Find(id);
+            ViewBag.ImageFileName = System.IO.Path.GetFileName(obj.AnhSP);
+            return View(obj);
+        }
+        [HttpPost]
+        [ActionName("Delete")]
+        public ActionResult DeleteConfirm(SanPham obj)
+        {
+            var sp = db.SanPham.Find(obj.Id);
+            if (sp != null)
+            {
+                db.SanPham.Remove(sp);
+                db.SaveChanges();
+            }
 
+            return RedirectToAction("Index");
+        }
     }
 }

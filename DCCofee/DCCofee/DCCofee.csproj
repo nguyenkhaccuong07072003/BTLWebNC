@@ -368,6 +368,7 @@
     <Content Include="Areas\Admin\Views\HangHoa\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\SanPham\Create.cshtml" />
     <Content Include="Areas\Admin\Views\SanPham\Update.cshtml" />
+    <Content Include="Areas\Admin\Views\SanPham\Delete.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_LayoutUser.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
