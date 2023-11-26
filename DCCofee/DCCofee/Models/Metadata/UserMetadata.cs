@@ -8,7 +8,7 @@ namespace DCCofee.Models.Metadata
 {
     public class UserMetadata
     {
-        [DisplayName("ID")]
+        [DisplayName("Mã Người Dùng")]
         public int Id { get; set; }
         [DisplayName("Họ tên")]
         public string HoTen { get; set; }

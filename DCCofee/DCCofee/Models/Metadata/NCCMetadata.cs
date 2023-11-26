@@ -9,7 +9,7 @@ namespace DCCofee.Models.Metadata
 {
     public class NCCMetadata
     {
-        [DisplayName("ID")]
+        [DisplayName("Mã Nhà Cung Cấp")]
         public int Id { get; set; }
         [DisplayName("Tên nhà cung cấp")]
         [Required(ErrorMessage = " Vui lòng nhập tên nhà cung cấp")]

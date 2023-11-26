@@ -9,7 +9,7 @@ namespace DCCofee.Models.Metadata
 {
     public class HangHoaMetadata
     {
-        [DisplayName("ID")]
+        [DisplayName("Mã Hàng Hóa")]
         public int Id { get; set; }
         [DisplayName("Tên hàng")]
         [Required(ErrorMessage = " Vui lòng nhập tên hàng hóa")]

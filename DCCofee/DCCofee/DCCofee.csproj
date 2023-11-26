@@ -250,10 +250,16 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\CTDHController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CTPNController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CTPXController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DonHangController.cs" />
     <Compile Include="Areas\Admin\Controllers\HangHoaController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\Controllers\NCCController.cs" />
+    <Compile Include="Areas\Admin\Controllers\PhieuNhapController.cs" />
+    <Compile Include="Areas\Admin\Controllers\PhieuXuatController.cs" />
     <Compile Include="Areas\Admin\Controllers\SanPhamController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserController.cs" />
     <Compile Include="Controllers\DanhMucController.cs" />
@@ -265,12 +271,15 @@
     <Compile Include="Models\CTDH.cs">
       <DependentUpon>DCCoffeeModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CTDHMetadata.cs" />
     <Compile Include="Models\CTPN.cs">
       <DependentUpon>DCCoffeeModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CTPNMetadata.cs" />
     <Compile Include="Models\CTPX.cs">
       <DependentUpon>DCCoffeeModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CTPXMetadata.cs" />
     <Compile Include="Models\DCCoffeeModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -289,12 +298,19 @@
     <Compile Include="Models\DONHANG.cs">
       <DependentUpon>DCCoffeeModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DonHangMetadata.cs" />
     <Compile Include="Models\HangHoa.cs">
       <DependentUpon>DCCoffeeModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\HangHoaMetadata.cs" />
+    <Compile Include="Models\Metadata\CTDHMetadata.cs" />
+    <Compile Include="Models\Metadata\CTPNMetadata.cs" />
+    <Compile Include="Models\Metadata\CTPXMetadata.cs" />
+    <Compile Include="Models\Metadata\DonHangMetadata.cs" />
     <Compile Include="Models\Metadata\HangHoaMetadata.cs" />
     <Compile Include="Models\Metadata\NCCMetadata.cs" />
+    <Compile Include="Models\Metadata\PhieuNhapMetadata.cs" />
+    <Compile Include="Models\Metadata\PhieuXuatMetadata.cs" />
     <Compile Include="Models\Metadata\SanPhamMetadata.cs" />
     <Compile Include="Models\Metadata\UserMetadata.cs" />
     <Compile Include="Models\NCC.cs">
@@ -307,9 +323,11 @@
     <Compile Include="Models\PHIEUNHAP.cs">
       <DependentUpon>DCCoffeeModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\PhieuNhapMetadata.cs" />
     <Compile Include="Models\PHIEUXUAT.cs">
       <DependentUpon>DCCoffeeModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\PhieuXuatMetadata.cs" />
     <Compile Include="Models\SanPham.cs">
       <DependentUpon>DCCoffeeModel.tt</DependentUpon>
     </Compile>
@@ -369,6 +387,13 @@
     <Content Include="Areas\Admin\Views\SanPham\Create.cshtml" />
     <Content Include="Areas\Admin\Views\SanPham\Update.cshtml" />
     <Content Include="Areas\Admin\Views\SanPham\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\PhieuNhap\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\PhieuNhap\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\PhieuNhap\Update.cshtml" />
+    <Content Include="Areas\Admin\Views\PhieuNhap\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\CTPN\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\PhieuXuat\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\DonHang\Index.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_LayoutUser.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -384,6 +409,8 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Views\CTDH\" />
+    <Folder Include="Areas\Admin\Views\CTPX\" />
     <Folder Include="Assets\Upload\" />
   </ItemGroup>
   <ItemGroup>

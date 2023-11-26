@@ -1,4 +1,4 @@
-﻿@model IEnumerable<DCCofee.Models.NguoiDung>
+﻿@model IEnumerable<DCCofee.Models.CTPN>
 
 @{
     ViewBag.Title = "Index";
@@ -6,12 +6,13 @@
 }
 
 
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Khách hàng | Danh sách</title>
+    <title>Chi tiết phiếu nhập | Danh sách</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
@@ -44,11 +45,11 @@
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <h1>
-                    Người dùng  
+                    Chi tiết phiếu nhập
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="/Admin/Home/Index"><i class="fa fa-dashboard"></i> Home</a></li>
-                    <li><a href="/Admin/User/Index">Người dùng</a></li>
+                    <li><a href="/Admin/CTPN/Index">Chi tiết phiếu nhập</a></li>
                     <li class="active">Danh sách</li>
                 </ol>
             </section>
@@ -58,8 +59,8 @@
                     <div class="col-xs-12">
                         <div class="box ">
                             <div class="box-header">
-                                <h2>Danh sách người dùng</h2>
-     @*                           <a href="/Admin/NCC/Create" class="btn btn-sm btn-success"><i class="fa fa-plus"> Thêm mới </i></a>*@
+                                <h2>Danh sách Chi tiết phiếu nhập</h2>
+                                <a href="/Admin/CTPN/Create" class="btn btn-sm btn-success"><i class="fa fa-plus"> Thêm mới </i></a>
                             </div><!-- /.box-header -->
                             <table class="table">
                                 <tr>
@@ -67,75 +68,38 @@
                                         @Html.DisplayNameFor(model => model.Id)
                                     </th>
                                     <th>
-                                        @Html.DisplayNameFor(model => model.TaiKhoan)
+                                        @Html.DisplayNameFor(model => model.PHIEUNHAP.Id)
                                     </th>
                                     <th>
-                                        @Html.DisplayNameFor(model => model.MatKhau)
+                                        @Html.DisplayNameFor(model => model.HangHoa.TenH)
                                     </th>
                                     <th>
-                                        @Html.DisplayNameFor(model => model.HoTen)
+                                        @Html.DisplayNameFor(model => model.SoLuong)
                                     </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.NgaySinh)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.GioiTinh)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.DiaChi)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.Sdt)
-                                    </th>
-                                    @*<th>
-                                         @Html.DisplayNameFor(model => model.VaiTro)
-                                </th>*@
                                     <th></th>
                                 </tr>
 
                                 @foreach (var item in Model)
                                 {
-                            <tr>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Id)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.TaiKhoan)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.MatKhau)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.HoTen)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.NgaySinh)
-                                </td>
-                                <td>
-                                    @*@Html.DisplayFor(modelItem => item.GioiTinh)*@
-                                    @if (item.GioiTinh == 0)
-                                    {
-                                        <span>Nam</span>
-                                    }
-                                    else if (item.GioiTinh == 1)
-                                    {
-                                        <span>Nữ</span>
-                                    }
-                                    else
-                                    {
-                                        <span>Không xác định</span>
-                                    }
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.DiaChi)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Sdt)
-                                </td>
-                                @*                                <td>
-            @Html.DisplayFor(modelItem => item.VaiTro)
-        </td>*@
-                            </tr>
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Id)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.PHIEUNHAP.Id)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.HangHoa.TenH)
+                                        </td>
+
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.SoLuong)
+                                        </td>
+                                        <td>
+                                            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                                            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                                        </td>
+                                    </tr>
                                 }
 
                             </table>
