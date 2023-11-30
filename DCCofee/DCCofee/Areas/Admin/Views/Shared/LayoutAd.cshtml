@@ -82,16 +82,17 @@
                                     <img src="~/Content/Admin/dist/img/user9-160x160.jpg" class="img-circle" alt="User Image">
                                     <p>
                                         Nguyễn Khắc Cường 
-                                        <small>Member since Nov. 2023</small>
+@*                                        <small>Member since Nov. 2023</small>*@
                                     </p>
                                 </li>
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
-                                    <div class="pull-left">
+@*                                    <div class="pull-left">
                                         <a href="#" class="btn btn-default btn-flat">Profile</a>
-                                    </div>
+                                    </div>*@
                                     <div class="pull-right">
-                                        <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                        @*<a href="/Admin/Login/Logout" class="btn btn-default btn-flat">Đăng Xuất</a>*@
+                                        @Html.ActionLink("Đăng Xuất", "Logout", "Login", new { area = "Admin" }, new { @class = "btn btn-default btn-flat" })
                                     </div>
                                 </li>
                             </ul>

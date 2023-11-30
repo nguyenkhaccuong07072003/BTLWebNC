@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -23,8 +24,10 @@ namespace DCCofee.Models.Metadata
         [DisplayName("Vai Trò")]
         public Nullable<int> VaiTro { get; set; }
         [DisplayName("Tài Khoản")]
+        [Required(ErrorMessage = " Tài khoản không được để trống")]
         public string TaiKhoan { get; set; }
         [DisplayName("Mật khẩu")]
+        [Required(ErrorMessage = " Mật khẩu không được để trống")]
         public string MatKhau { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

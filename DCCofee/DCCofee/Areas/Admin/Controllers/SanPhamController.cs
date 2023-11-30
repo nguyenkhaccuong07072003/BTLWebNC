@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace DCCofee.Areas.Admin.Controllers
 {
+    [Authorize]
     public class SanPhamController : Controller
     {
         QLQCFEntities db = new QLQCFEntities();
@@ -23,7 +24,7 @@ namespace DCCofee.Areas.Admin.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Create(Models.SanPham obj)
+        public ActionResult Create(SanPham obj)
         {
             if (ModelState.IsValid)
             {
@@ -39,6 +40,7 @@ namespace DCCofee.Areas.Admin.Controllers
             }
             db.SanPham.Add(obj);
             db.SaveChanges();
+
             return RedirectToAction("Index");
         }
 

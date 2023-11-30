@@ -83,8 +83,6 @@
                                 <td>
                                     @Html.DisplayFor(modelItem => item.Id)
                                 </td>
-
-
                                 <td>
                                     @Html.DisplayFor(modelItem => item.NguoiDung.HoTen)
                                 </td>
@@ -93,7 +91,7 @@
                                 </td>
                                 <td>
                                     @Html.ActionLink("Sửa", "Update", new { id = item.Id }) |
-                                    <a href="@Url.Action("Index", "CTPX", new { id = item.Id })">Chi Tiết</a> |
+                                    <a href="@Url.Action("Index", "CTPX", new { IdPhieuXuat = item.Id })">Chi Tiết</a> |
                                     @Html.ActionLink("Xóa", "Delete", new { id = item.Id })
                                 </td>
                             </tr>

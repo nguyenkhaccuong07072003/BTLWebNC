@@ -1,16 +1,18 @@
-﻿@model DCCofee.Models.HangHoa
+﻿@model DCCofee.Models.PHIEUXUAT
 
 @{
-    ViewBag.Title = "Update";
+    ViewBag.Title = "Delete";
     Layout = "~/Areas/Admin/Views/Shared/LayoutAd.cshtml";
 }
+
+
 
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>DCCofee | Sửa hàng hóa</title>
+    <title>DCCofee | Xóa phiếu xuất</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
@@ -46,12 +48,12 @@
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <h1>
-                    Hàng hóa
+                    Xóa phiếu xuất
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="/Admin/Home/Index"><i class="fa fa-dashboard"></i> Home</a></li>
-                    <li><a href="/Admin/HangHoa/Index">Hàng hóa</a></li>
-                    <li class="active">Sửa</li>
+                    <li><a href="/Admin/PhieuXuat/Index">Phiếu xuất</a></li>
+                    <li class="active">Xóa</li>
                 </ol>
             </section>
 
@@ -59,67 +61,47 @@
             <section class="content">
                 <!-- SELECT2 EXAMPLE -->
                 <div class="box box-primary">
-                    <form method="post" action="/Admin/HangHoa/Update" enctype="multipart/form-data">
+                    <form method="post" action="/Admin/PhieuXuat/Delete" enctype="multipart/form-data">
                         <div class="box-header with-border">
-                            <h2 class="box-title">Sửa hàng hóa</h2>
+                            @*<h2 class="box-title"></h2>*@
+                            <h3>Bạn có chắc là muốn xóa không?</h3>
                             <div class="box-tools pull-right">
-                                <button class="btn btn-info btn-sm" type="submit"><i class="fa fa-check"></i> Lưu</button>
                             </div>
                         </div><!-- /.box-header -->
                         <div class="box-body">
                             <div class="nav-tabs-custom">
                                 <div class="tab-content">
                                     <div class="tab-pane active" id="tab_1">
-                                        @using (Html.BeginForm())
-                                        {
-                                            @Html.AntiForgeryToken()
+                                        <div>
+                                            <dl class="dl-horizontal">
 
-                                        <div class="form-horizontal">
-                                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                                            @Html.HiddenFor(model => model.Id)
+                                                <dt>
+                                                    @Html.DisplayNameFor(model => model.NguoiDung.HoTen)
+                                                </dt>
 
-                                            <div class="form-group">
-                                                @Html.LabelFor(model => model.TenH, htmlAttributes: new { @class = "control-label col-md-2" })
-                                                <div class="col-md-10">
-                                                    @Html.EditorFor(model => model.TenH, new { htmlAttributes = new { @class = "form-control" } })
-                                                    @Html.ValidationMessageFor(model => model.TenH, "", new { @class = "text-danger" })
+                                                <dd>
+                                                    @Html.DisplayFor(model => model.NguoiDung.HoTen)
+                                                </dd>
+                                                <dt>
+                                                    @Html.DisplayNameFor(model => model.NgayXuat)
+                                                </dt>
+
+                                                <dd>
+                                                    @Html.DisplayFor(model => model.NgayXuat)
+                                                </dd>
+
+                                            </dl>
+
+                                            @using (Html.BeginForm("Delete", "PhieuXuat", FormMethod.Post))
+                                            {
+                                                @Html.AntiForgeryToken()
+                                                @Html.HiddenFor(Model => Model.Id)
+                                                <div class="form-actions no-color">
+                                                    <input type="submit" value="Xóa" class="btn btn-default" /> hoặc
+                                                    <a class="btn btn-default" href="/Admin/PhieuXuat/Index">Quay lại</a>
                                                 </div>
-                                            </div>
-
-                                            <div class="form-group">
-                                                @Html.LabelFor(model => model.SoLuong, htmlAttributes: new { @class = "control-label col-md-2" })
-                                                <div class="col-md-10">
-                                                    @Html.EditorFor(model => model.SoLuong, new { htmlAttributes = new { @class = "form-control" } })
-                                                    @Html.ValidationMessageFor(model => model.SoLuong, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
-                                                @Html.LabelFor(model => model.HSD, htmlAttributes: new { @class = "control-label col-md-2" })
-                                                <div class="col-md-10">
-                                                    @Html.EditorFor(model => model.HSD, new { htmlAttributes = new { @class = "form-control" } })
-                                                    @Html.ValidationMessageFor(model => model.HSD, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
-                                                @Html.LabelFor(model => model.DonViTinh, htmlAttributes: new { @class = "control-label col-md-2" })
-                                                <div class="col-md-10">
-                                                    @Html.EditorFor(model => model.DonViTinh, new { htmlAttributes = new { @class = "form-control" } })
-                                                    @Html.ValidationMessageFor(model => model.DonViTinh, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
-                                                @Html.LabelFor(model => model.DonGia, htmlAttributes: new { @class = "control-label col-md-2" })
-                                                <div class="col-md-10">
-                                                    @Html.EditorFor(model => model.DonGia,  new { htmlAttributes = new { @class = "form-control" } })
-                                                    @Html.ValidationMessageFor(model => model.DonGia, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
+                                            }
                                         </div>
-                                        }
-
                                     </div><!-- /.tab-pane -->
                                 </div><!-- /.tab-content -->
                             </div>
@@ -129,7 +111,10 @@
             </section><!-- /.content -->
         </div><!-- /.content-wrapper -->
         <footer class="main-footer">
-
+            @*            <div class="pull-right hidden-xs">
+                    <b>Version</b> 2.3.0
+                </div>
+                <strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights reserved.*@
         </footer>
 
     </div><!-- ./wrapper -->

@@ -15,7 +15,8 @@ namespace DCCofee.Models.Metadata
         [DisplayName("Ngày Xuất")]
         [Required(ErrorMessage = " Vui lòng nhập ngày xuất")]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
-        public Nullable<System.DateTime> NgayXuat { get; set; }
+        [DataType(DataType.Date)]
+        public Nullable<System.DateTime> NgayXuat { get; set; } = DateTime.Now;
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CTPX> CTPX { get; set; }

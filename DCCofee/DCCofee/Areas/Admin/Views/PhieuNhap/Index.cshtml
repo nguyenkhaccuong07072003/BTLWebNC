@@ -104,8 +104,7 @@
                                 </td>
                                 <td>
                                     @Html.ActionLink("Sửa", "Update", new { id = item.Id }) |
-                                    <a href="@Url.Action("Index", "CTPN", new { id = item.Id })">Chi Tiết</a> |
-                                    @*                                    @Html.ActionLink("Chi Tiết", "Details", new { id = item.Id }) |*@
+                                    <a href="@Url.Action("Index", "CTPN", new { IdPhieuNhap = item.Id })">Chi Tiết</a> |
                                     @Html.ActionLink("Xóa", "Delete", new { id = item.Id })
                                 </td>
                             </tr>

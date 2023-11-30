@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace DCCofee.Areas.Admin.Controllers
 {
+    [Authorize]
     public class HangHoaController : Controller
     {
         QLQCFEntities db = new QLQCFEntities();
@@ -43,25 +44,14 @@ namespace DCCofee.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Update(HangHoa obj)
         {
-            try
-            {
-                var hh = db.HangHoa.Find(obj.Id);
-                if (hh == null)
-                {
-                    return HttpNotFound();
-                }
-                hh.TenH = obj.TenH;
-                hh.SoLuong = obj.SoLuong;
-                hh.HSD = obj.HSD;
-                hh.DonViTinh = obj.DonViTinh;
-                hh.DonGia = obj.DonGia;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            catch (Exception)
-            {
-                return View("Error");
-            }
+             var hh = db.HangHoa.Find(obj.Id);
+             hh.TenH = obj.TenH;
+             hh.SoLuong = obj.SoLuong;
+             hh.HSD = obj.HSD;
+             hh.DonViTinh = obj.DonViTinh;
+             hh.DonGia = obj.DonGia;
+             db.SaveChanges();
+             return RedirectToAction("Index");
         }
         [HttpGet]
         public ActionResult Delete(int id)

@@ -22,7 +22,7 @@ namespace DCCofee.Models.Metadata
         [DisplayFormat(DataFormatString = "{0:0,000}")]
         public Nullable<double> DonGia { get; set; }
         [DisplayName("Ảnh sản phẩm")]
-        [Required(ErrorMessage = " Vui lòng chọn ảnh")]
+/*        [Required(ErrorMessage = " Vui lòng chọn ảnh")]*/
         public string AnhSP { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

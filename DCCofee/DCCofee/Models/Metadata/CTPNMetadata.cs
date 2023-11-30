@@ -11,8 +11,9 @@ namespace DCCofee.Models.Metadata
     {
         [DisplayName("Mã Chi Tiết Phiếu Nhập")]
         public int Id { get; set; }
-        [DisplayName("ID phiếu nhập")]
-        public Nullable<int> IdPN { get; set; }
+        [DisplayName("Mã phiếu nhập")]
+        public Nullable<int> IdPN { get; set; } 
+        [DisplayName("Hàng hóa")]
         [Required(ErrorMessage = " Vui lòng chọn hàng cần nhập")]
         public Nullable<int> IdH { get; set; }
         [DisplayName("Số lượng")]

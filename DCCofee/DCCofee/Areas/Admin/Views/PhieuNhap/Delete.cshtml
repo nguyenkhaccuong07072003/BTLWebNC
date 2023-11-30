@@ -11,7 +11,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>DCCofee | Xóa phiếu xuất</title>
+    <title>DCCofee | Xóa phiếu nhập</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
@@ -47,7 +47,7 @@
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <h1>
-                    Xóa phiếu xuất
+                    Xóa phiếu nhập
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="/Admin/Home/Index"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -108,7 +108,7 @@
 
                                             </dl>
 
-                                            @using (Html.BeginForm("Delete", "NCC", FormMethod.Post))
+                                            @using (Html.BeginForm("Delete", "PhieuNhap", FormMethod.Post))
                                             {
                                                 @Html.AntiForgeryToken()
                                                 @Html.HiddenFor(Model => Model.Id)

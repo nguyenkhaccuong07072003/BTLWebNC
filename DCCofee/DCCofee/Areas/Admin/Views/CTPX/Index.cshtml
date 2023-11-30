@@ -1,4 +1,4 @@
-﻿@model IEnumerable<DCCofee.Models.CTPN>
+﻿@model IEnumerable<DCCofee.Models.CTPX>
 
 @{
     ViewBag.Title = "Index";
@@ -6,13 +6,12 @@
 }
 
 
-
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Chi tiết phiếu nhập | Danh sách</title>
+    <title>Chi tiết phiếu xuất | Danh sách</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
@@ -45,11 +44,11 @@
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <h1>
-                    Chi tiết phiếu nhập
+                    Chi tiết phiếu xuất
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="/Admin/Home/Index"><i class="fa fa-dashboard"></i> Home</a></li>
-                    <li><a href="/Admin/CTPN/Index">Chi tiết phiếu nhập</a></li>
+                    <li><a href="/Admin/CTPX/Index">Chi tiết phiếu xuất</a></li>
                     <li class="active">Danh sách</li>
                 </ol>
             </section>
@@ -58,9 +57,9 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="box ">
-                            <div class="box-header d-flex justify-content-between align-items-center">
-                                <h2>Danh sách chi tiết phiếu nhập</h2>
-                                <a href="/Admin/CTPN/Create?IdPN=@ViewBag.IdPN" class="btn btn-sm btn-success"><i class="fa fa-plus"> Thêm mới </i></a>
+                            <div class="box-header">
+                                <h2>Danh sách Chi tiết phiếu xuất</h2>
+                                <a href="/Admin/CTPX/Create?IdPX=@ViewBag.IdPX" class="btn btn-sm btn-success"><i class="fa fa-plus"> Thêm mới </i></a>
                             </div><!-- /.box-header -->
                             <table class="table">
                                 <tr>
@@ -68,7 +67,7 @@
                                         @Html.DisplayNameFor(model => model.Id)
                                     </th>
                                     <th>
-                                        @Html.DisplayNameFor(model => model.PHIEUNHAP.Id)
+                                        @Html.DisplayNameFor(model => model.PHIEUXUAT.Id)
                                     </th>
                                     <th>
                                         @Html.DisplayNameFor(model => model.HangHoa.TenH)
@@ -76,6 +75,7 @@
                                     <th>
                                         @Html.DisplayNameFor(model => model.SoLuong)
                                     </th>
+
                                     <th></th>
                                 </tr>
 
@@ -86,12 +86,11 @@
                                             @Html.DisplayFor(modelItem => item.Id)
                                         </td>
                                         <td>
-                                            @Html.DisplayFor(modelItem => item.PHIEUNHAP.Id)
+                                            @Html.DisplayFor(modelItem => item.PHIEUXUAT.Id)
                                         </td>
                                         <td>
                                             @Html.DisplayFor(modelItem => item.HangHoa.TenH)
                                         </td>
-
                                         <td>
                                             @Html.DisplayFor(modelItem => item.SoLuong)
                                         </td>
@@ -104,7 +103,7 @@
 
                             </table>
                             <div>
-                                <a href="/Admin/PhieuNhap/Index" class="btn btn-sm btn-secondary"><i class="fa fa-arrow-left"></i> Quay lại</a>
+                                <a href="/Admin/PhieuXuat/Index" class="btn btn-sm btn-secondary"><i class="fa fa-arrow-left"></i> Quay lại</a>
                             </div>
                         </div><!-- /.box -->
                     </div><!-- /.col -->
