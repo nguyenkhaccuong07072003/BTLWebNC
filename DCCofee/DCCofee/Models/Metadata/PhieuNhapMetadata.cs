@@ -21,6 +21,7 @@ namespace DCCofee.Models.Metadata
         [DataType(DataType.Date)]
         public Nullable<System.DateTime> NgayNhap { get; set; } = DateTime.Now;
         [DisplayName("Tổng tiền")]
+        [DisplayFormat(DataFormatString = "{0:0,000}")]
         public Nullable<double> TongTien { get; set; } = 0;
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

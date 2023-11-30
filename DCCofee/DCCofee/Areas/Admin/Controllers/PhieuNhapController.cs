@@ -111,15 +111,17 @@ namespace DCCofee.Areas.Admin.Controllers
 
             if (pn != null)
             {
-                var chiTietPhieuNhapList = db.CTPN.Where(ctpn => ctpn.Id == obj.Id).ToList();
+                var chiTietPhieuNhapList = db.CTPN.Where(ctpn => ctpn.IdPN == obj.Id).ToList();
 
                 foreach (var chiTietPhieuNhap in chiTietPhieuNhapList)
                 {
                     db.CTPN.Remove(chiTietPhieuNhap);
                 }
 
-                db.PHIEUNHAP.Remove(pn);
+                pn.TongTien = (double)CalculateTotalAmountForPhieuNhap(obj.Id);
+                db.SaveChanges();
 
+                db.PHIEUNHAP.Remove(pn);
                 db.SaveChanges();
             }
 

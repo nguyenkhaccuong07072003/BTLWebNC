@@ -15,10 +15,9 @@ namespace DCCofee.Models.Metadata
         [Required(ErrorMessage = " Vui lòng nhập tên hàng hóa")]
         public string TenH { get; set; }
         [DisplayName("Số lượng")]
-        [Required(ErrorMessage = " Vui lòng nhập số lượng")]
-        public Nullable<int> SoLuong { get; set; }
+        public Nullable<int> SoLuong { get; set; } = 0;
         [DisplayName("Hạn sử dụng")]
-        [Required(ErrorMessage = " Vui lòng nhập hạn sử dụng")]
+        /*[Required(ErrorMessage = " Vui lòng nhập hạn sử dụng")]*/
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         [DataType(DataType.Date)]
         public Nullable<System.DateTime> HSD { get; set; } = DateTime.Now;

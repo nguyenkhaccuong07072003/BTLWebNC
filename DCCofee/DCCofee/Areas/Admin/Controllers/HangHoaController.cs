@@ -20,7 +20,11 @@ namespace DCCofee.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            return View();
+            var newHangHoa = new HangHoa
+            {
+                SoLuong = 0,
+            };
+            return View(newHangHoa);
         }
 
         [HttpPost]

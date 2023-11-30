@@ -15,7 +15,7 @@ namespace DCCofee.Areas.Admin.Controllers
         public ActionResult Index(int IdPhieuXuat)
         {
             ViewBag.IdPX = IdPhieuXuat;
-            List<CTPX> ctpx = db.CTPX.ToList();
+            List<CTPX> ctpx = db.CTPX.Where(u => u.IdPX == IdPhieuXuat).ToList();
             return View(ctpx);
         }
         [HttpGet]
@@ -70,12 +70,10 @@ namespace DCCofee.Areas.Admin.Controllers
                 var hangList = db.HangHoa.ToList();
                 ViewBag.HangHoa = new SelectList(hangList, "Id", "TenH");
                 ViewBag.IdPX = ctpx.IdPX;
-
             }
             catch (Exception)
             {
                 ModelState.AddModelError("", "An error occurred while saving the record.");
-
             }
             return View(ctpx);
         }

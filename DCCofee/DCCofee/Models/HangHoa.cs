@@ -23,7 +23,7 @@ namespace DCCofee.Models
     
         public int Id { get; set; }
         public string TenH { get; set; }
-        public Nullable<int> SoLuong { get; set; }
+        public Nullable<int> SoLuong { get; set; } = 0;
         public Nullable<System.DateTime> HSD { get; set; }
         public string DonViTinh { get; set; }
         public Nullable<double> DonGia { get; set; }

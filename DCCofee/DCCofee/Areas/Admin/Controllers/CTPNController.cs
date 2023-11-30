@@ -15,7 +15,7 @@ namespace DCCofee.Areas.Admin.Controllers
         public ActionResult Index(int IdPhieuNhap)
         {
             ViewBag.IdPN = IdPhieuNhap;
-            List<CTPN> ctpn = db.CTPN.ToList();
+            List<CTPN> ctpn = db.CTPN.Where(u => u.IdPN == IdPhieuNhap).ToList();
             return View(ctpn);
         }
 
@@ -52,7 +52,8 @@ namespace DCCofee.Areas.Admin.Controllers
 
                         db.CTPN.Add(ctpn);
                         db.SaveChanges();
-
+                        phieuNhap.TongTien = (double)CalculateTotalAmountForPhieuNhap(ctpn.IdPN);
+                        db.SaveChanges();
                         return RedirectToAction("Index", "CTPN", new { area = "Admin", IdPhieuNhap = ctpn.IdPN });
                     }
                     else
@@ -73,6 +74,12 @@ namespace DCCofee.Areas.Admin.Controllers
             }
             return View(ctpn);
         }
+
+        private double CalculateTotalAmountForPhieuNhap(int? idPN)
+        {
+            throw new NotImplementedException();
+        }
+
         [HttpGet]
         public ActionResult Update(int id)
         {
