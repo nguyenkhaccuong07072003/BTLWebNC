@@ -15,8 +15,6 @@ namespace DCCofee.Models
     
     public partial class QLQCFEntities : DbContext
     {
-        internal object TaiKhoans;
-
         public QLQCFEntities()
             : base("name=QLQCFEntities")
         {
