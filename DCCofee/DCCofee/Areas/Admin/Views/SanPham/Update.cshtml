@@ -76,43 +76,44 @@
                                         {
                                             @Html.AntiForgeryToken()
 
-                                        <div class="form-horizontal">
+                                            <div class="form-horizontal">
 
-                                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                                            @Html.HiddenFor(model => model.Id)
+                                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                                @Html.HiddenFor(model => model.Id)
 
-                                            <div class="form-group">
-                                                @Html.LabelFor(model => model.TenSP, htmlAttributes: new { @class = "control-label col-md-2" })
-                                                <div class="col-md-10">
-                                                    @Html.EditorFor(model => model.TenSP, new { htmlAttributes = new { @class = "form-control" } })
-                                                    @Html.ValidationMessageFor(model => model.TenSP, "", new { @class = "text-danger" })
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.TenSP, htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-10">
+                                                        @Html.EditorFor(model => model.TenSP, new { htmlAttributes = new { @class = "form-control" } })
+                                                        @Html.ValidationMessageFor(model => model.TenSP, "", new { @class = "text-danger" })
+                                                    </div>
                                                 </div>
-                                            </div>
 
-                                            <div class="form-group">
-                                                @Html.LabelFor(model => model.Mota, htmlAttributes: new { @class = "control-label col-md-2" })
-                                                <div class="col-md-10">
-                                                    @Html.EditorFor(model => model.Mota, new { htmlAttributes = new { @class = "form-control" } })
-                                                    @Html.ValidationMessageFor(model => model.Mota, "", new { @class = "text-danger" })
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.Mota, htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-10">
+                                                        @Html.EditorFor(model => model.Mota, new { htmlAttributes = new { @class = "form-control" } })
+                                                        @Html.ValidationMessageFor(model => model.Mota, "", new { @class = "text-danger" })
+                                                    </div>
                                                 </div>
-                                            </div>
 
-                                            <div class="form-group">
-                                                @Html.LabelFor(model => model.DonGia, htmlAttributes: new { @class = "control-label col-md-2" })
-                                                <div class="col-md-10">
-                                                    @Html.EditorFor(model => model.DonGia, new { htmlAttributes = new { @class = "form-control" } })
-                                                    @Html.ValidationMessageFor(model => model.DonGia, "", new { @class = "text-danger" })
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.DonGia, htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-10">
+                                                        @Html.EditorFor(model => model.DonGia, new { htmlAttributes = new { @class = "form-control" } })
+                                                        @Html.ValidationMessageFor(model => model.DonGia, "", new { @class = "text-danger" })
+                                                    </div>
                                                 </div>
-                                            </div>
 
-                                            <div class="form-group">
-                                                @Html.LabelFor(model => model.AnhSP, htmlAttributes: new { @class = "control-label col-md-2" })
-                                                <div class="col-md-10">
-                                                    <input type="file" name="fImage" style="margin-top:5px" />
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.AnhSP, htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-10">
+                                                        <input type="file" name="fImage" style="margin-top:5px" />
+                                                        <p><span id="fileNameDisplay">@ViewBag.ImageFileName</span></p>
+                                                    </div>
                                                 </div>
-                                            </div>
 
-                                        </div>
+                                            </div>
                                         }
 
                                     </div><!-- /.tab-pane -->
@@ -151,11 +152,11 @@
     <script src="plugins/select2/select2.full.min.js"></script>
     <script src="bootstrap/js/fileinput.min.js"></script>
     <script>
-$("#file-0a").fileinput({
-            'allowedFileExtensions' : ['jpg', 'png','gif']
+        $("#file-0a").fileinput({
+            'allowedFileExtensions': ['jpg', 'png', 'gif']
         });</script>
     <script>
-$(function () {
+        $(function () {
             //Initialize Select2 Elements
             $(".select2").select2();
 
@@ -175,8 +176,8 @@ $(function () {
                 radioClass: 'iradio_flat-green'
             });
 
-        });</script>
-
+        });
+    </script>
     <!--end script custom page-->
 </body>
 </html>

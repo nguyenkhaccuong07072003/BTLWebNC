@@ -82,27 +82,27 @@
 
                                 @foreach (var item in Model)
                                 {
-                                    <tr>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Id)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.TenNCC)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.DiaChi)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Sdt)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Email)
-                                        </td>
-                                        <td>
-                                            @Html.ActionLink("Sửa", "Update", new { id = item.Id }) |
-                                            @Html.ActionLink("Xóa", "Delete", new { id = item.Id })
-                                        </td>
-                                    </tr>
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Id)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TenNCC)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DiaChi)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Sdt)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Email)
+                                </td>
+                                <td>
+                                    <a class="btn btn-info btn-xs" href="/Admin/NCC/Update?id=@item.Id"><i class="fa fa-pencil"></i> Sửa</a>
+                                    <a class="btn btn-danger btn-xs" href="/Admin/NCC/Delete?id=@item.Id"><i class="fa fa-trash"></i> Xóa</a>
+                                </td>
+                            </tr>
                                 }
                             </table>
                         </div><!-- /.box -->

@@ -51,6 +51,7 @@
                     <li class="active">Danh sách</li>
                 </ol>
             </section>
+
             <!-- Main content -->
             <section class="content">
                 <div class="row">
@@ -60,6 +61,7 @@
                                 <h2>Danh sách sản phẩm</h2>
                                 <a href="/Admin/SanPham/Create" class="btn btn-sm btn-success"><i class="fa fa-plus"> Thêm mới </i></a>
                             </div><!-- /.box-header -->
+
                             <table class="table">
                                 <tr>
                                     <th>
@@ -83,29 +85,27 @@
 
                                 @foreach (var item in Model)
                                 {
-                            <tr>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Id)
-                                </td>
-                                <td>
-@*                                    @Html.DisplayFor(modelItem => item.AnhSP)*@
-                                    <img src="@Url.Content(item.AnhSP)" style="height:150px; width:110px;  margin:10px" />
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.TenSP)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Mota)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.DonGia)
-                                </td>
-
-                                <td>
-                                    @Html.ActionLink("Sửa", "Update", new { id = item.Id }) |
-                                    @Html.ActionLink("Xóa", "Delete", new { id = item.Id })
-                                </td>
-                            </tr>
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Id)
+                                        </td>
+                                        <td>
+                                            <img src="@Url.Content(item.AnhSP)" style="height:150px; width:110px;  margin:10px" />
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.TenSP)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Mota)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.DonGia)
+                                        </td>
+                                        <td>
+                                            <a class="btn btn-info btn-xs" href="/Admin/SanPham/Update?id=@item.Id"><i class="fa fa-pencil"></i> Sửa</a>
+                                            <a class="btn btn-danger btn-xs" href="/Admin/SanPham/Delete?id=@item.Id"><i class="fa fa-trash"></i> Xóa</a>
+                                        </td>
+                                    </tr>
                                 }
 
                             </table>
@@ -139,3 +139,5 @@
     <!--end script custom page-->
 </body>
 </html>
+
+

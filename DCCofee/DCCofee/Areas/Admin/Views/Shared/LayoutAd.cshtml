@@ -82,16 +82,17 @@
                                     <img src="~/Content/Admin/dist/img/user9-160x160.jpg" class="img-circle" alt="User Image">
                                     <p>
                                         Nguyễn Khắc Cường 
-                                        <small>Member since Nov. 2023</small>
+@*                                        <small>Member since Nov. 2023</small>*@
                                     </p>
                                 </li>
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
-                                    <div class="pull-left">
+@*                                    <div class="pull-left">
                                         <a href="#" class="btn btn-default btn-flat">Profile</a>
-                                    </div>
+                                    </div>*@
                                     <div class="pull-right">
-                                        <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                        @*<a href="/Admin/Login/Logout" class="btn btn-default btn-flat">Đăng Xuất</a>*@
+                                        @Html.ActionLink("Đăng Xuất", "Logout", "Login", new { area = "Admin" }, new { @class = "btn btn-default btn-flat" })
                                     </div>
                                 </li>
                             </ul>
@@ -117,14 +118,14 @@
                     </div>
                 </div>
                 <!-- search form -->
-                <form action="#" method="get" class="sidebar-form">
+                <!--<form action="#" method="get" class="sidebar-form">
                     <div class="input-group">
                         <input type="text" name="q" class="form-control" placeholder="Search...">
                         <span class="input-group-btn">
                             <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
                         </span>
                     </div>
-                </form>
+                </form>-->
                 <!-- /.search form -->
                 <!-- sidebar menu: : style can be found in sidebar.less -->
                 <ul class="sidebar-menu">
@@ -149,8 +150,8 @@
                         </a>
                         <ul class="treeview-menu">
                             <li><a href="/Admin/HangHoa/Index"><i class="fa fa-circle-o"></i> Quản lý hàng hóa</a></li>
-                            <li><a href="#"><i class="fa fa-circle-o"></i> Quản lý phiếu nhập</a></li>
-                            <li><a href="#"><i class="fa fa-circle-o"></i> Quản lý phiếu xuất</a></li>
+                            <li><a href="/Admin/PhieuNhap/Index"><i class="fa fa-circle-o"></i> Quản lý phiếu nhập</a></li>
+                            <li><a href="/Admin/PhieuXuat/Index"><i class="fa fa-circle-o"></i> Quản lý phiếu xuất</a></li>
                         </ul>
                     </li>
                     <li class="treeview">
@@ -160,7 +161,7 @@
                         </a>
                     </li>
                     <li class="treeview">
-                        <a href="#">
+                        <a href="/Admin/DonHang/Index">
                             <i class="fa fa-edit"></i> <span>Quản lý đơn hàng</span>
                         </a>
                     </li>

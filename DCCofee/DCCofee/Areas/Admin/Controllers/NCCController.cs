@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace DCCofee.Areas.Admin.Controllers
 {
+    [Authorize]
     public class NCCController : Controller
     {
         QLQCFEntities db = new QLQCFEntities();

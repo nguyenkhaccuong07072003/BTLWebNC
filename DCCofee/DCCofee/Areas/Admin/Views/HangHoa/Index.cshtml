@@ -104,9 +104,14 @@
                                 <td>
                                     @Html.DisplayFor(modelItem => item.DonGia)
                                 </td>
-                                <td>
+@*                                <td>
                                     @Html.ActionLink("Sửa", "Update", new { id = item.Id }) |
                                     @Html.ActionLink("Xóa", "Delete", new { id = item.Id })
+                                </td>*@
+
+                                <td>
+                                    <a class="btn btn-info btn-xs" href="/Admin/HangHoa/Update?id=@item.Id"><i class="fa fa-pencil"></i> Sửa</a>
+                                    <a class="btn btn-danger btn-xs" href="/Admin/HangHoa/Delete?id=@item.Id"><i class="fa fa-trash"></i> Xóa</a>
                                 </td>
                             </tr>
                                 }
