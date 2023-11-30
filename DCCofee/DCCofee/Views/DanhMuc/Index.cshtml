@@ -1,4 +1,4 @@
-﻿@model IEnumerable<DCCofee.Models.SanPham>
+﻿@model DCCofee.Models.SanPham
 
 @{
     ViewBag.Title = "Index";
@@ -111,15 +111,15 @@
                                     </a>
                                 </li>
                                 @*<li>
-                                    <a href="#">
-                                        Living room
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        Bed room
-                                    </a>
-                                </li>*@
+                                        <a href="#">
+                                            Living room
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            Bed room
+                                        </a>
+                                    </li>*@
                             </ul>
                         </div>
                         <div class="branch leftbar">
@@ -161,7 +161,7 @@
                         </div>
                         <div class="price-filter leftbar">
                             <h3 class="title">
-                                Price
+                                Giá
                             </h3>
                             <form class="pricing">
                                 <label>
@@ -178,7 +178,7 @@
                                 <input type="submit" value="Go">
                             </form>
                         </div>
-                       
+
                         <div class="fbl-box leftbar">
                             <h3 class="title">
                                 Facebook
@@ -239,51 +239,51 @@
                         </div>
                     </div>
                     <div class="col-md-9">
-                        <div class="banner">
-                            <div class="bannerslide" id="bannerslide">
-                                <ul class="slides">
-                                    <li>
-                                        <a href="#">
-                                            <img src="~/Content/User/images/banner-01.jpg" alt="" />
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <img src="~/Content/User/images/banner-02.jpg" alt="" />
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+                        @*<div class="banner">
+                                <div class="bannerslide" id="bannerslide">
+                                    <ul class="slides">
+                                        <li>
+                                            <a href="#">
+                                                <img src="~/Content/User/images/banner-01.jpg" alt="" />
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <img src="~/Content/User/images/banner-02.jpg" alt="" />
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>*@
                         <div class="clearfix">
                         </div>
                         <div class="products-list">
                             <div class="toolbar">
                                 <div class="sorter">
-                                    <div class="view-mode">
-                                        <a href="#" class="list active">
-                                            List
-                                        </a>
-                                        <a href="productgird.html" class="grid">
-                                            Grid
-                                        </a>
-                                    </div>
+                                    @*<div class="view-mode">
+                                            <a href="#" class="list active">
+                                                List
+                                            </a>
+                                            <a href="productgird.html" class="grid">
+                                                Grid
+                                            </a>
+                                        </div>*@
                                     <div class="sort-by">
-                                        Sort by :
+                                        Sắp xếp :
                                         <select name="">
                                             <option value="Default" selected>
-                                                Default
+                                                Mặc định
                                             </option>
                                             <option value="Name">
-                                                Name
+                                                Tên sản phẩm
                                             </option>
                                             <option value="Price">
-                                                Price
+                                                Giá
                                             </option>
                                         </select>
                                     </div>
                                     <div class="limiter">
-                                        Show :
+                                        Hiển thị :
                                         <select name="">
                                             <option value="3" selected>
                                                 3
@@ -318,57 +318,58 @@
                                 </div>
                             </div>
                             <ul class="products-listItem">
+                                
                                 <li class="products">
-                                    <div class="offer">
-                                        New
-                                    </div>
-                                    <div class="thumbnail">
-                                        <img src="~/Content/User/images/products/small/products-05.png" alt="Product Name">
-                                    </div>
-                                    <div class="product-list-description">
-                                        <div class="productname">
-                                            Lincoln Corner Unit Products
+                                        <div class="offer">
+                                            New
                                         </div>
-                                        <p>
-                                            <img src="~/Content/User/images/star.png" alt="">
-                                            <a href="#" class="review_num">
-                                                02 Review(s)
-                                            </a>
-                                        </p>
-                                        <p>
-                                            Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultri ces posuere cubilia curae. Proin lectus ipsum, gravida etds mattis vulputate, tristique ut lectus. Sed et lorem nunc...
-                                        </p>
-                                        <div class="list_bottom">
-                                            <div class="price">
-                                                <span class="new_price">
-                                                    450.00
-                                                    <sup>
-                                                        $
-                                                    </sup>
-                                                </span>
-                                                <span class="old_price">
-                                                    450.00
-                                                    <sup>
-                                                        $
-                                                    </sup>
-                                                </span>
+                                        <div class="thumbnail">
+                                            <img src="~/Content/User/images/products/small/products-05.png" alt="Product Name">
+                                        </div>
+                                        <div class="product-list-description">
+                                            <div class="productname">
+                                                Lincoln Corner Unit Products
                                             </div>
-                                            <div class="button_group">
-                                                <button class="button">
-                                                    Add To Cart
-                                                </button>
-                                                <button class="button compare">
-                                                    <i class="fa fa-exchange">
-                                                    </i>
-                                                </button>
-                                                <button class="button favorite">
-                                                    <i class="fa fa-heart-o">
-                                                    </i>
-                                                </button>
+                                            <p>
+                                                <img src="~/Content/User/images/star.png" alt="">
+                                                <a href="#" class="review_num">
+                                                    02 Review(s)
+                                                </a>
+                                            </p>
+                                            <p>
+                                                Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultri ces posuere cubilia curae. Proin lectus ipsum, gravida etds mattis vulputate, tristique ut lectus. Sed et lorem nunc...
+                                            </p>
+                                            <div class="list_bottom">
+                                                <div class="price">
+                                                    <span class="new_price">
+                                                        450.00
+                                                        <sup>
+                                                            $
+                                                        </sup>
+                                                    </span>
+                                                    <span class="old_price">
+                                                        450.00
+                                                        <sup>
+                                                            $
+                                                        </sup>
+                                                    </span>
+                                                </div>
+                                                <div class="button_group">
+                                                    <button class="button">
+                                                        Add To Cart
+                                                    </button>
+                                                    <button class="button compare">
+                                                        <i class="fa fa-exchange">
+                                                        </i>
+                                                    </button>
+                                                    <button class="button favorite">
+                                                        <i class="fa fa-heart-o">
+                                                        </i>
+                                                    </button>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </li>
+                                    </li>
                                 <li class="products">
                                     <div class="offer">
                                         New
@@ -585,21 +586,21 @@
                                         </a>
                                     </div>
                                     <div class="sort-by">
-                                        Sort by :
+                                        Sắp xếp :
                                         <select name="">
                                             <option value="Default" selected>
-                                                Default
+                                                Mặc định
                                             </option>
                                             <option value="Name">
-                                                Name
+                                                Tên sản phẩm
                                             </option>
                                             <option value="Price">
-                                                Price
+                                                Giá
                                             </option>
                                         </select>
                                     </div>
                                     <div class="limiter">
-                                        Show :
+                                        Hiển thị :
                                         <select name="">
                                             <option value="3" selected>
                                                 3
@@ -638,7 +639,7 @@
                 </div>
                 <div class="clearfix">
                 </div>
-                
+
             </div>
         </div>
         <div class="clearfix">

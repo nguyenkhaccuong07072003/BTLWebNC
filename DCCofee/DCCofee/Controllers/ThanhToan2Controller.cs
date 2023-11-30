@@ -7,14 +7,13 @@ using System.Web.Mvc;
 
 namespace DCCofee.Controllers
 {
-    public class DanhMucController : Controller
+    public class ThanhToan2Controller : Controller
     {
-        // GET: DanhMuc
-        Models.QLQCFEntities db = new Models.QLQCFEntities();
+        // GET: ThanhToan2
+        QLQCFEntities db = new QLQCFEntities();
         public ActionResult Index()
         {
-            List<Models.SanPham> data = db.SanPham.Take(3).ToList();
-            ViewBag.ListProducts = data;
+            List<DONHANG> sp = db.DONHANG.ToList();
             return View();
         }
     }
