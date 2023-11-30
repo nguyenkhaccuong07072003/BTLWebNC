@@ -1,0 +1,311 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+@*<h2>Index</h2>*@
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="~/Content/User/~/Content/User/images/favicon.png">
+    <title>
+        Welcome to FlatShop
+    </title>
+    <link href="~/Content/User/css/bootstrap.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,700,500italic,100italic,100' rel='stylesheet' type='text/css'>
+    <link href="~/Content/User/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/Content/User/css/flexslider.css" type="text/css" media="screen" />
+    <link href="~/Content/User/css/style.css" rel="stylesheet" type="text/css">
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js">
+    </script>
+    <script src="https://oss.maxcdn.com/libs/respond.~/Content/User/js/1.3.0/respond.min.js">
+    </script>
+    <![endif]-->
+</head>
+<body>
+    <div class="wrapper">
+        
+        <div class="clearfix">
+        </div>
+        <div class="container_fullwidth">
+            <div class="container shopping-cart">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3 class="title">
+                            Giỏ hàng
+                        </h3>
+                        <div class="clearfix">
+                        </div>
+                        <table class="shop-table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Ảnh sản phẩm
+                                    </th>
+                                    <th>
+                                        Tên sản phẩm
+                                    </th>
+                                    <th>
+                                        Giá
+                                    </th>
+                                    <th>
+                                        SL
+                                    </th>
+                                    <th>
+                                        Giá
+                                    </th>
+                                    <th>
+                                        Xóa
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                List
+
+                                        @{
+                                            if (Session["Cart"] != null)
+                                            {
+                                                List<DCCofee.Models.CartMoeldcs> lstCart = (List<DCCofee.Models.CartMoeldcs>)Session["Cart"];
+
+                                                for (int i = 0; i < lstCart.Count; i++)
+                                                {
+                                                    <tr>
+                                                        <td>
+                                                            <img src="@lstCart[i].ChiTiet.AnhSP" alt="">
+                                                        </td>
+                                                        <td>
+                                                            <div class="shop-details">
+                                                                <div class="productname">
+                                                                    @lstCart[i].ChiTiet.TenSP
+                                                                </div>
+                                                                @*<p>
+                                            <img alt="" src="~/Content/User/images/star.png">
+                                            <a class="review_num" href="#">
+                                                02 Review(s)
+                                            </a>
+                                        </p>
+                                        <div class="color-choser">
+                                            <span class="text">
+                                                Product Color :
+                                            </span>
+                                            <ul>
+                                                <li>
+                                                    <a class="black-bg " href="#">
+                                                        black
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a class="red-bg" href="#">
+                                                        light red
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <p>
+                                            Product Code :
+                                            <strong class="pcode">
+                                                Dress 120
+                                            </strong>
+                                        </p>*@
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <h5>
+                                                                @Html.FormatValue(lstCart[i].ChiTiet.DonGia, "{0:#,####}")
+                                                            </h5>
+                                                        </td>
+                                                        <td>
+                                                            <input type="number" style="width:100px;" value="@lstCart[i].Quantity" />
+                                                        </td>
+                                                        <td>
+                                                            <h5>
+                                                                <strong class="red">
+                                                                    @Html.FormatValue(lstCart[i].Amount, "{0:#,####}")
+                                                                </strong>
+                                                            </h5>
+                                                        </td>
+                                                        <td>
+                                                            <a href="#">
+                                                                <img src="~/Content/User/images/remove.png" alt="">
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            }
+                                        }
+
+
+
+
+
+
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="6">
+                                        <button class="pull-left">
+                                           Tiếp tục mua hàng
+                                        </button>
+                                        <button class=" pull-right">
+                                            Cập nhật giỏ hàng
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                        <div class="clearfix">
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 col-sm-6">
+                                <div class="shippingbox">
+                                    <h5>
+                                        Ước tính vận chuyển và thuế
+                                    </h5>
+                                    <form>
+                                        <label>
+                                            Chọn quốc gia *
+                                        </label>
+                                        <select class="">
+                                            <option value="AL">
+                                                Việt Nam
+                                            </option>
+                                            <option value="AK">
+                                                Thái Lan
+                                            </option>
+                                            <option value="AZ">
+                                                Nhật bản
+                                            </option>
+                                            <option value="AR">
+                                                Mỹ
+                                            </option>
+                                            <option value="CA">
+                                                Ấn Độ
+                                            </option>
+                                           
+                                        </select>
+                                        <label>
+                                            Vùng / Miền *
+                                        </label>
+                                        <select class="">
+                                            <option value="AL">
+                                               Hà Nội
+                                            </option>
+                                            <option value="AK">
+                                                Sài Gòn
+                                            </option>
+                                            <option value="AZ">
+                                                Nghệ An
+                                            </option>
+                                            <option value="AR">
+                                                Hà Tĩnh
+                                            </option>
+                                            <option value="CA">
+                                                Tokyo
+                                            </option>
+                                            
+                                        </select>
+                                        <label>
+                                            Mã code *
+                                        </label>
+                                        <select class="">
+                                            <option value="AL">
+                                                Việt Nam
+                                            </option>
+                                            <option value="AK">
+                                                Lào
+                                            </option>
+                                            <option value="AZ">
+                                                Campuchia
+                                            </option>
+                                            <option value="AR">
+                                                Nhật Bản
+                                            </option>
+                                            
+                                        </select>
+                                        <div class="clearfix">
+                                        </div>
+                                        <button>
+                                            Nhận báo giá
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6">
+                                <div class="shippingbox">
+                                    <h5>
+                                        Mã ưu đãi
+                                    </h5>
+                                    <form>
+                                        <label>
+                                            Nhập mã ưu đãi của bạn nếu có
+                                        </label>
+                                        <input type="text" name="">
+                                        <div class="clearfix">
+                                        </div>
+                                        <button>
+                                            Nhận báo giá
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6">
+                                <div class="shippingbox">
+                                    <div class="subtotal">
+                                        <h5>
+                                            Tổng phụ
+                                        </h5>
+                                        <span>
+                                            <h5>
+                                              @*  <strong class="red">
+                                                   @{ 
+                                                       double sum = 0;
+                                                       for (int i = 0; i < lstCart1.Count; i++)
+                                                       {
+                                                           sum = sum + lstCart[i].Amount;
+                                                       }
+                                                   }
+                                                </strong>*@
+                                            </h5>
+                                        </span>
+                                    </div>
+                                    
+                                    <button>
+                                        <a href="ThanhToan1/Index">
+                                        Quy trình thanh toán
+                                        </a>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix">
+                </div>
+                
+            </div>
+        </div>
+        <div class="clearfix">
+        </div>
+        
+    </div>
+    <!-- Bootstrap core JavaScript==================================================-->
+    <script type="text/javascript" src="~/Content/User/js/jquery-1.10.2.min.js">
+    </script>
+    <script type="text/javascript" src="~/Content/User/js/bootstrap.min.js">
+    </script>
+    <script defer src="~/Content/User/js/jquery.flexslider.js">
+    </script>
+    <script type="text/javascript" src="~/Content/User/js/jquery.carouFredSel-6.2.1-packed.js">
+    </script>
+    <script type="text/javascript" src="~/Content/User/js/script.min.js">
+    </script>
+</body>
+</html

@@ -265,12 +265,19 @@
     <Compile Include="Areas\Admin\Controllers\PhieuXuatController.cs" />
     <Compile Include="Areas\Admin\Controllers\SanPhamController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserController.cs" />
+    <Compile Include="Controllers\ChiTietController.cs" />
+    <Compile Include="Controllers\DangNhapController.cs" />
     <Compile Include="Controllers\DanhMucController.cs" />
+    <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LienHeController.cs" />
+    <Compile Include="Controllers\Session_userController.cs" />
+    <Compile Include="Controllers\ThanhToan1Controller.cs" />
+    <Compile Include="Controllers\ThanhToan2Controller.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CartMoeldcs.cs" />
     <Compile Include="Models\CTDH.cs">
       <DependentUpon>DCCoffeeModel.tt</DependentUpon>
     </Compile>
@@ -413,6 +420,10 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\DanhMuc\Index.cshtml" />
     <Content Include="Views\LienHe\Index.cshtml" />
+    <Content Include="Views\GioHang\Index.cshtml" />
+    <Content Include="Views\ThanhToan1\Index.cshtml" />
+    <Content Include="Views\ChiTiet\Index.cshtml" />
+    <Content Include="Views\ThanhToan2\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -424,6 +435,8 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Assets\Upload\" />
+    <Folder Include="Views\DangNhap\" />
+    <Folder Include="Views\Session_user\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

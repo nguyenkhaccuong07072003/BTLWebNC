@@ -10,11 +10,12 @@ namespace DCCofee.Controllers
     public class DanhMucController : Controller
     {
         // GET: DanhMuc
-        QLQCFEntities db = new QLQCFEntities();
+        Models.QLQCFEntities db = new Models.QLQCFEntities();
         public ActionResult Index()
         {
-            List<SanPham> sp = db.SanPham.ToList();
-            return View(sp);
+            List<Models.SanPham> data = db.SanPham.Take(3).ToList();
+            ViewBag.ListProducts = data;
+            return View();
         }
     }
 }
