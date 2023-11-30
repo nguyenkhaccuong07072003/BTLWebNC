@@ -100,14 +100,18 @@ namespace DCCofee.Areas.Admin.Controllers
         [ActionName("Delete")]
         public ActionResult DeleteConfirm(CTPN obj)
         {
-            var ctpn = db.CTPN.Find(obj.Id);
-
-            if (ctpn != null)
+            if (obj != null)
             {
-                db.CTPN.Remove(ctpn);
-                db.SaveChanges();
+                var ctpn = db.CTPN.Find(obj.Id);
+                int idPhieuNhap = (int)ctpn.IdPN;
+                if (ctpn != null)
+                {
+                    db.CTPN.Remove(ctpn);
+                    db.SaveChanges();
+                }
+                return RedirectToAction("Index", "CTPN", new { area = "Admin", IdPhieuNhap = idPhieuNhap });
             }
-            return RedirectToAction("Index", "CTPN", new { area = "Admin", IdPhieuNhap = ctpn.IdPN });
+            return View(obj);
         }
     }
 }

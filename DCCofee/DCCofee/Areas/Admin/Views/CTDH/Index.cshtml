@@ -1,0 +1,145 @@
+﻿@model IEnumerable<DCCofee.Models.CTDH>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/LayoutAd.cshtml";
+}
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Chi tiết đơn hàng | Danh sách</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.5 -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="plugins/ionicons/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
+
+
+    <!--css custom page-->
+    <!-- DataTables -->
+    <link rel="stylesheet" href="plugins/datatables/dataTables.bootstrap.css">
+
+    <!--end css custom page-->
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+    <div class="wrapper">
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <h1>
+                    Chi tiết đơn hàng
+                </h1>
+                <ol class="breadcrumb">
+                    <li><a href="/Admin/Home/Index"><i class="fa fa-dashboard"></i> Home</a></li>
+                    <li><a href="/Admin/CTDH/Index">Chi tiết đơn hàng</a></li>
+                    <li class="active">Danh sách</li>
+                </ol>
+            </section>
+            <!-- Main content -->
+            <section class="content">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="box ">
+                            <div class="box-header d-flex justify-content-between align-items-center">
+                                <h2>Danh sách chi tiết đơn hàng</h2>
+                                @*<a href="/Admin/CTPN/Create?IdPN=@ViewBag.IdDH" class="btn btn-sm btn-success"><i class="fa fa-plus"> Thêm mới </i></a>*@
+                            </div><!-- /.box-header -->
+                            <table class="table">
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Id)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.DONHANG.Id)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.SanPham.TenSP)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.SoLuong)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.MoTa)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.GiaTien)
+                                    </th>
+                                    <th></th>
+                                </tr>
+
+                                @foreach (var item in Model)
+                                {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Id)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.DONHANG.Id)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.SanPham.TenSP)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.SoLuong)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.MoTa)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.GiaTien)
+                                    </td>
+                                </tr>
+                                }
+
+                            </table>
+                            <div>
+                                <a href="/Admin/PhieuNhap/Index" class="btn btn-sm btn-secondary"><i class="fa fa-arrow-left"></i> Quay lại</a>
+                            </div>
+                        </div><!-- /.box -->
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </section><!-- /.content -->
+        </div><!-- /.content-wrapper -->
+
+    </div><!-- ./wrapper -->
+    <!-- jQuery 2.1.4 -->
+    <script src="plugins/jQuery/jQuery-2.1.4.min.js"></script>
+    <!-- Bootstrap 3.3.5 -->
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <!-- SlimScroll -->
+    <script src="plugins/slimScroll/jquery.slimscroll.min.js"></script>
+    <!-- FastClick -->
+    <script src="plugins/fastclick/fastclick.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="dist/js/app.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="dist/js/demo.js"></script>
+
+    <!--script custom page-->
+    <!-- DataTables -->
+    <script src="plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="plugins/datatables/dataTables.bootstrap.min.js"></script>
+    <script src="plugins/datatables/dataTables.alphabetSearch.js"></script>
+
+    <!-- page script -->
+    <!--end script custom page-->
+</body>
+</html>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DCCofee.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,10 +10,13 @@ namespace DCCofee.Areas.Admin.Controllers
     [Authorize]
     public class CTDHController : Controller
     {
+        QLQCFEntities db = new QLQCFEntities();
         // GET: Admin/CTDH
         public ActionResult Index()
         {
-            return View();
+            List<CTDH> ctdh = db.CTDH.ToList();
+            return View(ctdh);
         }
+
     }
 }

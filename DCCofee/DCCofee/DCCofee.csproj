@@ -43,6 +43,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.9.0.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
+      <HintPath>..\packages\Portable.BouncyCastle.1.9.0\lib\net40\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -394,6 +397,17 @@
     <Content Include="Areas\Admin\Views\CTPN\Index.cshtml" />
     <Content Include="Areas\Admin\Views\PhieuXuat\Index.cshtml" />
     <Content Include="Areas\Admin\Views\DonHang\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\PhieuXuat\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\PhieuXuat\Update.cshtml" />
+    <Content Include="Areas\Admin\Views\PhieuXuat\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\CTPX\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\CTPN\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\CTPN\Update.cshtml" />
+    <Content Include="Areas\Admin\Views\CTPN\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\CTPX\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\CTPX\Update.cshtml" />
+    <Content Include="Areas\Admin\Views\CTPX\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\CTDH\Index.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_LayoutUser.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -409,8 +423,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
-    <Folder Include="Areas\Admin\Views\CTDH\" />
-    <Folder Include="Areas\Admin\Views\CTPX\" />
     <Folder Include="Assets\Upload\" />
   </ItemGroup>
   <ItemGroup>

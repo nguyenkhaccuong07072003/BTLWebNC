@@ -149,3 +149,5 @@ D:\WebNC\BTLWebNC\DCCofee\DCCofee\obj\Debug\DCCofee.csproj.CopyComplete
 D:\WebNC\BTLWebNC\DCCofee\DCCofee\obj\Debug\DCCofee.dll
 D:\WebNC\BTLWebNC\DCCofee\DCCofee\obj\Debug\DCCofee.pdb
 D:\WebNC\BTLWebNC\DCCofee\DCCofee\obj\Debug\DCCofee.csproj.AssemblyReference.cache
+D:\WebNC\BTLWebNC\DCCofee\DCCofee\bin\BouncyCastle.Crypto.dll
+D:\WebNC\BTLWebNC\DCCofee\DCCofee\bin\BouncyCastle.Crypto.xml

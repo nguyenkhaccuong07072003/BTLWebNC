@@ -89,5 +89,28 @@ namespace DCCofee.Areas.Admin.Controllers
 
             return RedirectToAction("Index", "CTPX", new { area = "Admin", IdPhieuXuat = ctpx.IdPX });
         }
+        [HttpGet]
+        public ActionResult Delete(int id)
+        {
+            var obj = db.CTPX.Find(id);
+            return View(obj);
+        }
+        [HttpPost]
+        [ActionName("Delete")]
+        public ActionResult DeleteConfirm(CTPX obj)
+        {
+            if (obj != null)
+            {
+                var ctpx = db.CTPX.Find(obj.Id);
+                int idPhieuXuat = (int)ctpx.IdPX;
+                if (ctpx != null)
+                {
+                    db.CTPX.Remove(ctpx);
+                    db.SaveChanges();
+                }
+                return RedirectToAction("Index", "CTPX", new { area = "Admin", IdPhieuXuat = idPhieuXuat });
+            }
+            return View(obj);
+        }
     }
 }
