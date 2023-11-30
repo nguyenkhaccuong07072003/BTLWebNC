@@ -47,6 +47,9 @@ namespace DCCofee.Areas.Admin.Controllers
                     {
                         ctpn.PHIEUNHAP = phieuNhap;
                         ctpn.HangHoa = hangHoa;
+
+                        hangHoa.SoLuong += ctpn.SoLuong;
+
                         db.CTPN.Add(ctpn);
                         db.SaveChanges();
 
@@ -62,11 +65,11 @@ namespace DCCofee.Areas.Admin.Controllers
                 ViewBag.HangHoa = new SelectList(hangList, "Id", "TenH");
                 ViewBag.IdPN = ctpn.IdPN;
 
-             }
+            }
             catch (Exception)
             {
                 ModelState.AddModelError("", "An error occurred while saving the record.");
-               
+
             }
             return View(ctpn);
         }
@@ -82,10 +85,15 @@ namespace DCCofee.Areas.Admin.Controllers
         public ActionResult Update(CTPN obj)
         {
             var ctpn = db.CTPN.Find(obj.Id);
+
+            var difference = obj.SoLuong - ctpn.SoLuong;
+            ctpn.HangHoa.SoLuong += difference;
+
             ctpn.IdH = obj.IdH;
             ctpn.SoLuong = obj.SoLuong;
 
             db.SaveChanges();
+
             ViewBag.HangHoa = new SelectList(db.HangHoa.ToList(), "Id", "TenH");
 
             return RedirectToAction("Index", "CTPN", new { area = "Admin", IdPhieuNhap = ctpn.IdPN });
@@ -104,11 +112,15 @@ namespace DCCofee.Areas.Admin.Controllers
             {
                 var ctpn = db.CTPN.Find(obj.Id);
                 int idPhieuNhap = (int)ctpn.IdPN;
+
                 if (ctpn != null)
                 {
+                    ctpn.HangHoa.SoLuong -= ctpn.SoLuong;
+
                     db.CTPN.Remove(ctpn);
                     db.SaveChanges();
                 }
+
                 return RedirectToAction("Index", "CTPN", new { area = "Admin", IdPhieuNhap = idPhieuNhap });
             }
             return View(obj);

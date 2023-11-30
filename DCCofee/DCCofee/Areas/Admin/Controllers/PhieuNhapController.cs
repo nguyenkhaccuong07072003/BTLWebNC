@@ -39,16 +39,32 @@ namespace DCCofee.Areas.Admin.Controllers
                 pn.NCC = db.NCC.Find(pn.IdNCC);
                 pn.NguoiDung = db.NguoiDung.Find(pn.IdNV);
 
+                pn.TongTien = (double)CalculateTotalAmountForPhieuNhap(pn.Id);
+
                 db.PHIEUNHAP.Add(pn);
                 db.SaveChanges();
 
                 return RedirectToAction("Index");
             }
+
             var nhanvienList = db.NguoiDung.Where(u => u.VaiTro == 0).ToList();
             ViewBag.NCC = new SelectList(db.NCC.ToList(), "Id", "TenNCC", pn.IdNCC);
             ViewBag.NguoiDung = new SelectList(nhanvienList, "Id", "HoTen", pn.IdNV);
 
             return View(pn);
+        }
+        private decimal CalculateTotalAmountForPhieuNhap(int phieuNhapId)
+        {
+            var chiTietPhieuNhapList = db.CTPN.Where(ctpn => ctpn.Id == phieuNhapId).ToList();
+            decimal totalAmount = 0;
+
+            foreach (var chiTietPhieuNhap in chiTietPhieuNhapList)
+            {
+                var unitPrice = chiTietPhieuNhap.HangHoa.DonGia;
+                totalAmount = totalAmount + (decimal) chiTietPhieuNhap.SoLuong * (decimal)unitPrice;
+            }
+
+            return totalAmount;
         }
         [HttpGet]
         public ActionResult Update(int id)
@@ -69,10 +85,13 @@ namespace DCCofee.Areas.Admin.Controllers
                 pn.IdNCC = obj.IdNCC;
                 pn.IdNV = obj.IdNV;
                 pn.NgayNhap = obj.NgayNhap;
-                pn.TongTien = obj.TongTien;
+
+                pn.TongTien = (double)CalculateTotalAmountForPhieuNhap(obj.Id);
+
                 db.SaveChanges();
             }
             catch { }
+
             var nhanvienList = db.NguoiDung.Where(u => u.VaiTro == 0).ToList();
             ViewBag.NCC = new SelectList(db.NCC.ToList(), "Id", "TenNCC");
             ViewBag.NguoiDung = new SelectList(nhanvienList, "Id", "HoTen");

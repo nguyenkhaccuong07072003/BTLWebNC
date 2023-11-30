@@ -10,7 +10,7 @@ namespace DCCofee.Areas.Admin.Controllers
 {
     public class LoginController : Controller
     {
-        Models.QLQCFEntities db = new Models.QLQCFEntities();
+        QLQCFEntities db = new Models.QLQCFEntities();
         // GET: Admin/Login
         public ActionResult Index()
         {
@@ -18,13 +18,13 @@ namespace DCCofee.Areas.Admin.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Index(Models.NguoiDung obj, string ReturnUrl)
+        public ActionResult Index(NguoiDung obj, string ReturnUrl)
         {
             if(ModelState.IsValid)
             {
                 try
                 {
-                    Models.NguoiDung check = db.NguoiDung.FirstOrDefault(m => m.TaiKhoan == obj.TaiKhoan && m.MatKhau == obj.MatKhau);
+                    NguoiDung check = db.NguoiDung.FirstOrDefault(m => m.TaiKhoan == obj.TaiKhoan && m.MatKhau == obj.MatKhau);
                     if(check != null)
                     {
                             FormsAuthentication.SetAuthCookie(check.TaiKhoan, false);

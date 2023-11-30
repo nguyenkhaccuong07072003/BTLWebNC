@@ -46,10 +46,20 @@ namespace DCCofee.Areas.Admin.Controllers
                     {
                         ctpx.PHIEUXUAT = phieuXuat;
                         ctpx.HangHoa = hangHoa;
-                        db.CTPX.Add(ctpx);
-                        db.SaveChanges();
 
-                        return RedirectToAction("Index", "CTPX", new { area = "Admin", IdPhieuXuat = ctpx.IdPX });
+                        if (hangHoa.SoLuong >= ctpx.SoLuong)
+                        {
+                            hangHoa.SoLuong -= ctpx.SoLuong;
+
+                            db.CTPX.Add(ctpx);
+                            db.SaveChanges();
+
+                            return RedirectToAction("Index", "CTPX", new { area = "Admin", IdPhieuXuat = ctpx.IdPX });
+                        }
+                        else
+                        {
+                            ModelState.AddModelError("", "Not enough inventory quantity for the specified product.");
+                        }
                     }
                     else
                     {
@@ -81,10 +91,15 @@ namespace DCCofee.Areas.Admin.Controllers
         public ActionResult Update(CTPX obj)
         {
             var ctpx = db.CTPX.Find(obj.Id);
+    
+            var difference = obj.SoLuong - ctpx.SoLuong;
+            ctpx.HangHoa.SoLuong -= difference;
+
             ctpx.IdH = obj.IdH;
             ctpx.SoLuong = obj.SoLuong;
 
             db.SaveChanges();
+
             ViewBag.HangHoa = new SelectList(db.HangHoa.ToList(), "Id", "TenH");
 
             return RedirectToAction("Index", "CTPX", new { area = "Admin", IdPhieuXuat = ctpx.IdPX });
@@ -103,11 +118,15 @@ namespace DCCofee.Areas.Admin.Controllers
             {
                 var ctpx = db.CTPX.Find(obj.Id);
                 int idPhieuXuat = (int)ctpx.IdPX;
+
                 if (ctpx != null)
                 {
+                    ctpx.HangHoa.SoLuong += ctpx.SoLuong;
+
                     db.CTPX.Remove(ctpx);
                     db.SaveChanges();
                 }
+
                 return RedirectToAction("Index", "CTPX", new { area = "Admin", IdPhieuXuat = idPhieuXuat });
             }
             return View(obj);
