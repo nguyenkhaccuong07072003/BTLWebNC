@@ -52,6 +52,29 @@
       <End Role="NguoiDung" EntitySet="NguoiDung" />
       <End Role="PHIEUXUAT" EntitySet="PHIEUXUAT" />
     </AssociationSet>
+    <EntitySet Name="ChiTietGioHang" EntityType="QLQCFModel.ChiTietGioHang" />
+    <EntitySet Name="GioHang" EntityType="QLQCFModel.GioHang" />
+    <AssociationSet Name="FK_ChiTietGioHang_GioHang" Association="QLQCFModel.FK_ChiTietGioHang_GioHang">
+      <End Role="GioHang" EntitySet="GioHang" />
+      <End Role="ChiTietGioHang" EntitySet="ChiTietGioHang" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChiTietGioHang_SanPham" Association="QLQCFModel.FK_ChiTietGioHang_SanPham">
+      <End Role="SanPham" EntitySet="SanPham" />
+      <End Role="ChiTietGioHang" EntitySet="ChiTietGioHang" />
+    </AssociationSet>
+    <EntitySet Name="Giohang1" EntityType="QLQCFModel.Giohang1" />
+    <AssociationSet Name="FK_ChiTietGioHang_Giohang1" Association="QLQCFModel.FK_ChiTietGioHang_Giohang1">
+      <End Role="Giohang1" EntitySet="Giohang1" />
+      <End Role="ChiTietGioHang" EntitySet="ChiTietGioHang" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GioHang_NguoiDung" Association="QLQCFModel.FK_GioHang_NguoiDung">
+      <End Role="NguoiDung" EntitySet="NguoiDung" />
+      <End Role="GioHang" EntitySet="GioHang" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Giohang1_NguoiDung" Association="QLQCFModel.FK_Giohang1_NguoiDung">
+      <End Role="NguoiDung" EntitySet="NguoiDung" />
+      <End Role="Giohang1" EntitySet="Giohang1" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="CTDH">
     <Key>
@@ -61,7 +84,6 @@
     <Property Name="IdDH" Type="Int32" />
     <Property Name="IdSP" Type="Int32" />
     <Property Name="SoLuong" Type="Int32" />
-    <Property Name="MoTa" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="GiaTien" Type="Double" />
     <NavigationProperty Name="DONHANG" Relationship="QLQCFModel.FK__CTDH__IdDH__08B54D69" FromRole="CTDH" ToRole="DONHANG" />
     <NavigationProperty Name="SanPham" Relationship="QLQCFModel.FK__CTDH__IdSP__09A971A2" FromRole="CTDH" ToRole="SanPham" />
@@ -99,6 +121,7 @@
     <Property Name="TongTien" Type="Double" />
     <NavigationProperty Name="CTDH" Relationship="QLQCFModel.FK__CTDH__IdDH__08B54D69" FromRole="DONHANG" ToRole="CTDH" />
     <NavigationProperty Name="NguoiDung" Relationship="QLQCFModel.FK__DONHANG__IdNV__05D8E0BE" FromRole="DONHANG" ToRole="NguoiDung" />
+    <Property Name="DiaChi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="HangHoa">
     <Key>
@@ -140,6 +163,8 @@
     <NavigationProperty Name="DONHANG" Relationship="QLQCFModel.FK__DONHANG__IdNV__05D8E0BE" FromRole="NguoiDung" ToRole="DONHANG" />
     <NavigationProperty Name="PHIEUNHAP" Relationship="QLQCFModel.FK__PHIEUNHAP__IdNV__76969D2E" FromRole="NguoiDung" ToRole="PHIEUNHAP" />
     <NavigationProperty Name="PHIEUXUAT" Relationship="QLQCFModel.FK__PHIEUXUAT__IdNV__7D439ABD" FromRole="NguoiDung" ToRole="PHIEUXUAT" />
+    <NavigationProperty Name="GioHang" Relationship="QLQCFModel.FK_GioHang_NguoiDung" FromRole="NguoiDung" ToRole="GioHang" />
+    <NavigationProperty Name="Giohang1" Relationship="QLQCFModel.FK_Giohang1_NguoiDung" FromRole="NguoiDung" ToRole="Giohang1" />
   </EntityType>
   <EntityType Name="PHIEUNHAP">
     <Key>
@@ -174,6 +199,7 @@
     <Property Name="DonGia" Type="Double" />
     <Property Name="AnhSP" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="CTDH" Relationship="QLQCFModel.FK__CTDH__IdSP__09A971A2" FromRole="SanPham" ToRole="CTDH" />
+    <NavigationProperty Name="ChiTietGioHang" Relationship="QLQCFModel.FK_ChiTietGioHang_SanPham" FromRole="SanPham" ToRole="ChiTietGioHang" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
@@ -302,6 +328,99 @@
       </Principal>
       <Dependent Role="PHIEUXUAT">
         <PropertyRef Name="IdNV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ChiTietGioHang">
+    <Key>
+      <PropertyRef Name="ID_ChiTietGiohang" />
+    </Key>
+    <Property Name="ID_ChiTietGiohang" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_Giohang" Type="Int32" />
+    <Property Name="ID_SanPham" Type="Int32" />
+    <Property Name="SoLuong" Type="Int32" />
+    <Property Name="DonGia" Type="Double" />
+    <Property Name="Tong" Type="Double" />
+    <Property Name="HinhAnh" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="GioHang" Relationship="QLQCFModel.FK_ChiTietGioHang_GioHang" FromRole="ChiTietGioHang" ToRole="GioHang" />
+    <NavigationProperty Name="SanPham" Relationship="QLQCFModel.FK_ChiTietGioHang_SanPham" FromRole="ChiTietGioHang" ToRole="SanPham" />
+    <NavigationProperty Name="Giohang1" Relationship="QLQCFModel.FK_ChiTietGioHang_Giohang1" FromRole="ChiTietGioHang" ToRole="Giohang1" />
+  </EntityType>
+  <EntityType Name="GioHang">
+    <Key>
+      <PropertyRef Name="ID_GioHang" />
+    </Key>
+    <Property Name="ID_GioHang" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_KhachHang" Type="Int32" />
+    <NavigationProperty Name="ChiTietGioHang" Relationship="QLQCFModel.FK_ChiTietGioHang_GioHang" FromRole="GioHang" ToRole="ChiTietGioHang" />
+    <NavigationProperty Name="NguoiDung" Relationship="QLQCFModel.FK_GioHang_NguoiDung" FromRole="GioHang" ToRole="NguoiDung" />
+  </EntityType>
+  <Association Name="FK_ChiTietGioHang_GioHang">
+    <End Type="QLQCFModel.GioHang" Role="GioHang" Multiplicity="0..1" />
+    <End Type="QLQCFModel.ChiTietGioHang" Role="ChiTietGioHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GioHang">
+        <PropertyRef Name="ID_GioHang" />
+      </Principal>
+      <Dependent Role="ChiTietGioHang">
+        <PropertyRef Name="ID_Giohang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChiTietGioHang_SanPham">
+    <End Type="QLQCFModel.SanPham" Role="SanPham" Multiplicity="0..1" />
+    <End Type="QLQCFModel.ChiTietGioHang" Role="ChiTietGioHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SanPham">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ChiTietGioHang">
+        <PropertyRef Name="ID_SanPham" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Giohang1">
+    <Key>
+      <PropertyRef Name="ID_GioHang" />
+    </Key>
+    <Property Name="ID_GioHang" Type="Int32" Nullable="false" />
+    <Property Name="ID_KhachHang" Type="Int32" />
+    <NavigationProperty Name="ChiTietGioHang" Relationship="QLQCFModel.FK_ChiTietGioHang_Giohang1" FromRole="Giohang1" ToRole="ChiTietGioHang" />
+    <NavigationProperty Name="NguoiDung" Relationship="QLQCFModel.FK_Giohang1_NguoiDung" FromRole="Giohang1" ToRole="NguoiDung" />
+  </EntityType>
+  <Association Name="FK_ChiTietGioHang_Giohang1">
+    <End Type="QLQCFModel.Giohang1" Role="Giohang1" Multiplicity="0..1" />
+    <End Type="QLQCFModel.ChiTietGioHang" Role="ChiTietGioHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Giohang1">
+        <PropertyRef Name="ID_GioHang" />
+      </Principal>
+      <Dependent Role="ChiTietGioHang">
+        <PropertyRef Name="ID_Giohang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GioHang_NguoiDung">
+    <End Type="QLQCFModel.NguoiDung" Role="NguoiDung" Multiplicity="0..1" />
+    <End Type="QLQCFModel.GioHang" Role="GioHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NguoiDung">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GioHang">
+        <PropertyRef Name="ID_KhachHang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Giohang1_NguoiDung">
+    <End Type="QLQCFModel.NguoiDung" Role="NguoiDung" Multiplicity="0..1" />
+    <End Type="QLQCFModel.Giohang1" Role="Giohang1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NguoiDung">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Giohang1">
+        <PropertyRef Name="ID_KhachHang" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

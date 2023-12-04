@@ -225,3 +225,7 @@ D:\web nang cao\BTLWebNC\DCCofee\DCCofee\obj\Debug\DCCofee.csproj.CoreCompileInp
 D:\web nang cao\BTLWebNC\DCCofee\DCCofee\obj\Debug\DCCofee.csproj.CopyComplete
 D:\web nang cao\BTLWebNC\DCCofee\DCCofee\obj\Debug\DCCofee.dll
 D:\web nang cao\BTLWebNC\DCCofee\DCCofee\obj\Debug\DCCofee.pdb
+D:\web nang cao\BTLWebNC\DCCofee\DCCofee\bin\PagedList.dll
+D:\web nang cao\BTLWebNC\DCCofee\DCCofee\bin\PagedList.Mvc.dll
+D:\web nang cao\BTLWebNC\DCCofee\DCCofee\bin\PagedList.xml
+D:\web nang cao\BTLWebNC\DCCofee\DCCofee\bin\PagedList.Mvc.xml

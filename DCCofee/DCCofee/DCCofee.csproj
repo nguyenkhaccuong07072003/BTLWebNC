@@ -50,6 +50,12 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
@@ -163,6 +169,7 @@
     <Content Include="Content\Admin\plugins\select2\select2.full.min.js" />
     <Content Include="Content\Admin\plugins\select2\select2.min.css" />
     <Content Include="Content\Admin\plugins\slimScroll\jquery.slimscroll.min.js" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="Content\User\css\bootstrap.css" />
     <Content Include="Content\User\css\flexslider.css" />
     <Content Include="Content\User\css\font-awesome.min.css" />
@@ -206,7 +213,7 @@
     <Content Include="Content\User\images\products\small\products-05.png" />
     <Content Include="Content\User\images\products\small\products-06.png" />
     <Content Include="Content\User\images\products\small\products-07.png" />
-    <Content Include="Content\User\images\products\small\rs cf espresso %281%29.jpg" />
+    <Content Include="Content\User\images\products\small\123.jpg" />
     <Content Include="Content\User\images\products\thum\products-01.png" />
     <Content Include="Content\User\images\products\thum\products-02.png" />
     <Content Include="Content\User\images\products\thum\products-03.png" />
@@ -217,6 +224,7 @@
     <Content Include="Content\User\images\promotion-03.png" />
     <Content Include="Content\User\images\regbg.png" />
     <Content Include="Content\User\images\remove.png" />
+    <Content Include="Content\User\images\search.png" />
     <Content Include="Content\User\images\search-bg.png" />
     <Content Include="Content\User\images\share.png" />
     <Content Include="Content\User\images\slider-image-01.png" />
@@ -233,7 +241,9 @@
     <Content Include="Content\User\js\jquery.elevatezoom.js" />
     <Content Include="Content\User\js\jquery.flexslider.js" />
     <Content Include="Content\User\js\jquery.sequence-min.js" />
+    <Content Include="Content\User\Login\Login.js" />
     <Content Include="Content\User\js\script.min.js" />
+    <Content Include="Content\User\Login\Login.css" />
     <Content Include="Global.asax" />
     <Content Include="Models\DCCoffeeModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -262,10 +272,13 @@
     <Compile Include="Areas\Admin\Controllers\PhieuXuatController.cs" />
     <Compile Include="Areas\Admin\Controllers\SanPhamController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserController.cs" />
+    <Compile Include="Controllers\CaNhanController.cs" />
     <Compile Include="Controllers\ChiTietController.cs" />
     <Compile Include="Controllers\DangNhapController.cs" />
     <Compile Include="Controllers\DanhMucController.cs" />
+    <Compile Include="Controllers\DatHangController.cs" />
     <Compile Include="Controllers\GioHangController.cs" />
+    <Compile Include="Controllers\GioHangTestController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LienHeController.cs" />
     <Compile Include="Controllers\Session_userController.cs" />
@@ -275,6 +288,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\CartMoeldcs.cs" />
+    <Compile Include="Models\ChiTietGioHang.cs">
+      <DependentUpon>DCCoffeeModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\CTDH.cs">
       <DependentUpon>DCCoffeeModel.tt</DependentUpon>
     </Compile>
@@ -306,6 +322,12 @@
       <DependentUpon>DCCoffeeModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DonHangMetadata.cs" />
+    <Compile Include="Models\GioHang.cs">
+      <DependentUpon>DCCoffeeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Giohang1.cs">
+      <DependentUpon>DCCoffeeModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\HangHoa.cs">
       <DependentUpon>DCCoffeeModel.tt</DependentUpon>
     </Compile>
@@ -410,6 +432,12 @@
     <Content Include="Views\ThanhToan1\Index.cshtml" />
     <Content Include="Views\ChiTiet\Index.cshtml" />
     <Content Include="Views\ThanhToan2\Index.cshtml" />
+    <Content Include="Views\DangNhap\DangNhap.cshtml" />
+    <Content Include="Views\GioHangTest\Index.cshtml" />
+    <Content Include="Views\DatHang\ChiTietDonHang.cshtml" />
+    <Content Include="Views\DatHang\DanhSachDonHang.cshtml" />
+    <Content Include="Views\GioHangTest\form_DatHang.cshtml" />
+    <Content Include="Views\CaNhan\Sua.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -423,7 +451,6 @@
     <Folder Include="Areas\Admin\Views\CTDH\" />
     <Folder Include="Areas\Admin\Views\CTPX\" />
     <Folder Include="Assets\Upload\" />
-    <Folder Include="Views\DangNhap\" />
     <Folder Include="Views\Session_user\" />
   </ItemGroup>
   <ItemGroup>

@@ -3,24 +3,29 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using DCCofee.Models;
 namespace DCCofee.Controllers
 {
     public class Session_userController : Controller
     {
-        // GET: Session_user
-        /*public ActionResult Index()
+        QLQCFEntities db = new QLQCFEntities();
+        protected void Set_User(int id)
         {
-            return View();
-        }*/
-        protected void Set_User(string Taikhoan)
+            Session["Id"] = id;
+        }
+        protected int Get_User()
         {
-            Session["TaiKhoan"] = Taikhoan;
+            int idKhachHang = Convert.ToInt32(Session["id"]);
+            return idKhachHang;
         }
 
-        protected string Get_User()
+       
+
+        public ActionResult Logout()
         {
-            return Session["TaiKhoan"] as string;
+            Session["Id"] = null;
+
+            return RedirectToAction("Index", "Home");
         }
     }
 }

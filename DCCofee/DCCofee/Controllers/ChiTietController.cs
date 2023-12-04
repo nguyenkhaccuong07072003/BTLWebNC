@@ -12,12 +12,10 @@ namespace DCCofee.Controllers
         // GET: ChiTiet
         /*Models.QLQCFEntities db = new Models.QLQCFEntities();*/
         QLQCFEntities db = new QLQCFEntities();
-        public ActionResult Index( )
+        public ActionResult Index(int id)
         {
-            List<Models.SanPham> data = db.SanPham.Take(6).ToList();
-           /* ViewBag.Hot = data;
-            var objProduct = db.SanPham.Where(m => m.Id == id).FirstOrDefault();*/
-            return View();
+            var product = db.SanPham.Find(id);
+            return View(product);
         }
     }
 }

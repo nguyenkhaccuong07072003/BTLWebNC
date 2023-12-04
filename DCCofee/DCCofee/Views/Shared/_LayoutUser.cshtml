@@ -28,40 +28,30 @@
                         <div class="header_top">
                             <div class="row">
                                 <div class="col-md-3">
-                                    <ul class="option_nav">
+                                    <ul class="option_nav"> 
                                         <li class="dorpdown">
-                                            <a href="#">Eng</a>
+                                            <a href="#">VI</a>
                                             <ul class="subnav">
                                                 <li><a href="#">Eng</a></li>
-                                                @*<li><a href="#">Vns</a></li>
-                                                    <li><a href="#">Fer</a></li>
-                                                    <li><a href="#">Gem</a></li>*@
                                             </ul>
                                         </li>
-                                        @*<li class="dorpdown">
-                                                <a href="#">USD</a>
-                                                <ul class="subnav">
-                                                    <li><a href="#">USD</a></li>
-                                                    <li><a href="#">UKD</a></li>
-                                                    <li><a href="#">FER</a></li>
-                                                </ul>
-                                            </li>*@
                                     </ul>
                                 </div>
                                 <div class="col-md-6">
-                                    @*<ul class="topmenu">
-                                            <li><a href="#">About Us</a></li>
-                                            <li><a href="#">News</a></li>
-                                            <li><a href="#">Service</a></li>
-                                            <li><a href="#">Recruiment</a></li>
-                                            <li><a href="#">Media</a></li>
-                                            <li><a href="#">Support</a></li>
-                                        </ul>*@
                                 </div>
                                 <div class="col-md-3">
                                     <ul class="usermenu">
-                                        <li><a href="checkout.html" class="log">Đăng Nhập</a></li>
-                                        <li><a href="checkout2.html" class="reg">Đăng Ký</a></li>
+                                        @if (Session["Id"] != null)
+                                        {
+                                        <li><a href="@Url.Action("Logout", "Session_user")">Đăng Xuất</a></li>
+                                            
+                                        }
+                                        else
+                                        {
+                                            <li><a href="/dangnhap/dangnhap" class="log">Đăng Nhập</a></li>
+                                            <li><a href="/dangnhap/dangnhap" class="reg">Đăng Ký</a></li>
+                                        }
+
                                     </ul>
                                 </div>
                             </div>
@@ -73,95 +63,26 @@
                                     <form><input class="search-submit" type="submit" value=""><input class="search-input" placeholder="Enter your search term..." type="text" value="" name="search"></form>
                                 </li>
                                 <li class="option-cart">
-                                    <a href="#" class="cart-icon">cart <span class="cart_no"></span></a>
-                                    <ul class="option-cart-item">
-                                        Chưa có trong giỏ hàng
-                                     @*   <li>
-                                            <div class="cart-item">
-                                                <div class="image"><img src="~/Content/User/images/products/thum/products-01.png" alt=""></div>
-                                                <div class="item-description">
-                                                    <p class="name">Lincoln chair</p>
-                                                    <p>Size: <span class="light-red">One size</span><br>Quantity: <span class="light-red">01</span></p>
-                                                </div>
-                                                <div class="right">
-                                                    <p class="price">$30.00</p>
-                                                    <a href="#" class="remove"><img src="~/Content/User/images/remove.png" alt="remove"></a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="cart-item">
-                                                <div class="image"><img src="~/Content/User/images/products/thum/products-02.png" alt=""></div>
-                                                <div class="item-description">
-                                                    <p class="name">Lincoln chair</p>
-                                                    <p>Size: <span class="light-red">One size</span><br>Quantity: <span class="light-red">01</span></p>
-                                                </div>
-                                                <div class="right">
-                                                    <p class="price">$30.00</p>
-                                                    <a href="#" class="remove"><img src="~/Content/User/images/remove.png" alt="remove"></a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li><span class="total">Total <strong>$60.00</strong></span><button class="checkout" onClick="location.href='checkout.html'">CheckOut</button></li>*@
-                                    </ul>
+                                    <a href="/giohangtest/index" class="cart-icon">cart <span class="cart_no"></span></a>
+                                   
                                 </li>
                             </ul>
                             <div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button></div>
                             <div class="navbar-collapse collapse">
                                 <ul class="nav navbar-nav">
-                                    <li class="active dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Home</a>
-                                        <div class="dropdown-menu">
-                                            <ul class="mega-menu-links">
-                                                <li><a href="~/Home/Index">Home</a></li>
-                                                <li><a href="~/DanhMuc/Index">DanhMuc</a></li>
-                                                <li><a href="~/LienHe/Index">LienHe</a></li>
-                                                <li><a href="~/ChiTiet/Index">ChiTiet</a></li>
-                                                <li><a href="~/ThanhToan1/Index">ThanhToan1</a></li>
-                                                <li><a href="~/ThanhToan2/Index">ThanhToan2</a></li>
-                                                <li><a href="~/GioHang/Index">GioHang</a></li>
-                                            </ul>
-                                        </div>
-                                    </li>
-
-
-
-
-
-                                    <li><a href="productgird.html">Cà Phê</a></li>
-                                    <li><a href="productlitst.html">Trà</a></li>
-                                    @*<li class="dropdown">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Fashion</a>
-                                            <div class="dropdown-menu mega-menu">
-                                                <div class="row">
-                                                    <div class="col-md-6 col-sm-6">
-                                                        <ul class="mega-menu-links">
-                                                            <li><a href="productgird.html">New Collection</a></li>
-                                                            <li><a href="productgird.html">Shirts & tops</a></li>
-                                                            <li><a href="productgird.html">Laptop & Brie</a></li>
-                                                            <li><a href="productgird.html">Dresses</a></li>
-                                                            <li><a href="productgird.html">Blazers & Jackets</a></li>
-                                                            <li><a href="productgird.html">Shoulder Bags</a></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="col-md-6 col-sm-6">
-                                                        <ul class="mega-menu-links">
-                                                            <li><a href="productgird.html">New Collection</a></li>
-                                                            <li><a href="productgird.html">Shirts & tops</a></li>
-                                                            <li><a href="productgird.html">Laptop & Brie</a></li>
-                                                            <li><a href="productgird.html">Dresses</a></li>
-                                                            <li><a href="productgird.html">Blazers & Jackets</a></li>
-                                                            <li><a href="productgird.html">Shoulder Bags</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>*@
-                                    <li><a href="productgird.html">Bánh Ngọt</a></li>
-                                    @*<li><a href="productgird.html">kids</a></li>
-                                        <li><a href="productgird.html">blog</a></li>
-                                        <li><a href="productgird.html">jewelry</a></li>*@
+                                    <li><a href="~/Home/Index">Trang chủ</a></li>
+                                    <li><a href="~/DanhMuc/Index">Danh mục</a></li>
                                     <li><a href="~/LienHe/Index">Liên hệ</a></li>
+                                    @if (Session["Id"] != null)
+                                    {
+                                        <li><a href="/CaNhan/Sua">Cá nhân</a></li>
+
+                                    }
+                                    else
+                                    {
+                                        <li><a href="/DangNhap/DangNhap">Cá nhân</a></li>
+                                    }
+
                                 </ul>
                             </div>
                         </div>
@@ -248,15 +169,7 @@
                             <p>Call Us : (084) 1900 1008</p>
                             <p>Email : DCxinhdep@gmail.com</p>
                         </div>
-                        @*<div class="col-md-3 col-sm-6">
-                                <h4 class="title">Customer<strong> Support</strong></h4>
-                                <ul class="support">
-                                    <li><a href="#">FAQ</a></li>
-                                    <li><a href="#">Payment Option</a></li>
-                                    <li><a href="#">Booking Tips</a></li>
-                                    <li><a href="#">Infomation</a></li>
-                                </ul>
-                            </div>*@
+                       
                         <div class="col-md-3">
                             <h4 class="title">Get Our <strong>Newsletter </strong></h4>
                             <p>Lorem ipsum dolor ipsum dolor.</p>

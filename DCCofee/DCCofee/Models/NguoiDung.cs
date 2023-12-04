@@ -20,6 +20,8 @@ namespace DCCofee.Models
             this.DONHANG = new HashSet<DONHANG>();
             this.PHIEUNHAP = new HashSet<PHIEUNHAP>();
             this.PHIEUXUAT = new HashSet<PHIEUXUAT>();
+            this.GioHang = new HashSet<GioHang>();
+            this.Giohang1 = new HashSet<Giohang1>();
         }
     
         public int Id { get; set; }
@@ -38,5 +40,9 @@ namespace DCCofee.Models
         public virtual ICollection<PHIEUNHAP> PHIEUNHAP { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PHIEUXUAT> PHIEUXUAT { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<GioHang> GioHang { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Giohang1> Giohang1 { get; set; }
     }
 }

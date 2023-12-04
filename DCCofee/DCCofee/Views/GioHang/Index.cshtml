@@ -7,7 +7,6 @@
 @*<h2>Index</h2>*@
 
 
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,16 +22,11 @@
     <link href="~/Content/User/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="~/Content/User/css/flexslider.css" type="text/css" media="screen" />
     <link href="~/Content/User/css/style.css" rel="stylesheet" type="text/css">
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js">
-    </script>
-    <script src="https://oss.maxcdn.com/libs/respond.~/Content/User/js/1.3.0/respond.min.js">
-    </script>
-    <![endif]-->
+
 </head>
 <body>
     <div class="wrapper">
-        
+
         <div class="clearfix">
         </div>
         <div class="container_fullwidth">
@@ -70,92 +64,64 @@
                             <tbody>
                                 List
 
-                                        @{
-                                            if (Session["Cart"] != null)
-                                            {
-                                                List<DCCofee.Models.CartMoeldcs> lstCart = (List<DCCofee.Models.CartMoeldcs>)Session["Cart"];
+                                @{
+                                    if (Session["Cart"] != null)
+                                    {
+                                        List<DCCofee.Models.CartMoeldcs> lstCart = (List<DCCofee.Models.CartMoeldcs>)Session["Cart"];
 
-                                                for (int i = 0; i < lstCart.Count; i++)
-                                                {
-                                                    <tr>
-                                                        <td>
-                                                            <img src="@lstCart[i].ChiTiet.AnhSP" alt="">
-                                                        </td>
-                                                        <td>
-                                                            <div class="shop-details">
-                                                                <div class="productname">
-                                                                    @lstCart[i].ChiTiet.TenSP
-                                                                </div>
-                                                                @*<p>
-                                            <img alt="" src="~/Content/User/images/star.png">
-                                            <a class="review_num" href="#">
-                                                02 Review(s)
-                                            </a>
-                                        </p>
-                                        <div class="color-choser">
-                                            <span class="text">
-                                                Product Color :
-                                            </span>
-                                            <ul>
-                                                <li>
-                                                    <a class="black-bg " href="#">
-                                                        black
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a class="red-bg" href="#">
-                                                        light red
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <p>
-                                            Product Code :
-                                            <strong class="pcode">
-                                                Dress 120
-                                            </strong>
-                                        </p>*@
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <h5>
-                                                                @Html.FormatValue(lstCart[i].ChiTiet.DonGia, "{0:#,####}")
-                                                            </h5>
-                                                        </td>
-                                                        <td>
-                                                            <input type="number" style="width:100px;" value="@lstCart[i].Quantity" />
-                                                        </td>
-                                                        <td>
-                                                            <h5>
-                                                                <strong class="red">
-                                                                    @Html.FormatValue(lstCart[i].Amount, "{0:#,####}")
-                                                                </strong>
-                                                            </h5>
-                                                        </td>
-                                                        <td>
-                                                            <a href="#">
-                                                                <img src="~/Content/User/images/remove.png" alt="">
-                                                            </a>
-                                                        </td>
-                                                    </tr>
-                                                }
-                                            }
+                                        for (int i = 0; i < lstCart.Count; i++)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    <img src="@lstCart[i].ChiTiet.AnhSP" alt="">
+                                                </td>
+                                                <td>
+                                                    <div class="shop-details">
+                                                        <div class="productname">
+                                                            @lstCart[i].ChiTiet.TenSP
+                                                        </div>
+
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <h5>
+                                                        @Html.FormatValue(lstCart[i].ChiTiet.DonGia, "{0:#,####}")
+                                                    </h5>
+                                                </td>
+                                                <td>
+                                                    <input type="number" style="width:100px;" value="@lstCart[i].Quantity" oninput="updateAmount(@i)" />
+
+                                                </td>
+                                                <td>
+                                                    <h5>
+                                                        <strong class="red">
+                                                            @Html.FormatValue(lstCart[i].Amount, "{0:#,####}")
+                                                        </strong>
+                                                    </h5>
+                                                </td>
+                                                <td>
+                                                    <form action="@Url.Action("RemoveFromCart", "GioHang")" method="post" class="remove-form">
+                                                        <input type="hidden" name="id" value="@lstCart[i].Id" />
+                                                        <button type="submit">
+                                                            <img src="~/Content/User/images/remove.png" alt="Xóa">
+                                                        </button>
+                                                    </form>
+                                                </td>
+                                            </tr>
                                         }
-
-
-
-
-
-
+                                    }
+                                }
                             </tbody>
                             <tfoot>
                                 <tr>
                                     <td colspan="6">
                                         <button class="pull-left">
-                                           Tiếp tục mua hàng
+                                            <a href="ThanhToan1/Index">
+                                                Quy trình thanh toán
+                                            </a>
                                         </button>
-                                        <button class=" pull-right">
-                                            Cập nhật giỏ hàng
+                                        <button id="updateTotalBtn" class="pull-right" onclick="updateTotal()">
+                                            Cập nhật tổng giá trị
                                         </button>
                                     </td>
                                 </tr>
@@ -189,14 +155,14 @@
                                             <option value="CA">
                                                 Ấn Độ
                                             </option>
-                                           
+
                                         </select>
                                         <label>
                                             Vùng / Miền *
                                         </label>
                                         <select class="">
                                             <option value="AL">
-                                               Hà Nội
+                                                Hà Nội
                                             </option>
                                             <option value="AK">
                                                 Sài Gòn
@@ -210,7 +176,7 @@
                                             <option value="CA">
                                                 Tokyo
                                             </option>
-                                            
+
                                         </select>
                                         <label>
                                             Mã code *
@@ -228,7 +194,7 @@
                                             <option value="AR">
                                                 Nhật Bản
                                             </option>
-                                            
+
                                         </select>
                                         <div class="clearfix">
                                         </div>
@@ -259,42 +225,30 @@
                             <div class="col-md-4 col-sm-6">
                                 <div class="shippingbox">
                                     <div class="subtotal">
-                                        <h5>
-                                            Tổng phụ
-                                        </h5>
-                                        <span>
-                                            <h5>
-                                              @*  <strong class="red">
-                                                   @{ 
-                                                       double sum = 0;
-                                                       for (int i = 0; i < lstCart1.Count; i++)
-                                                       {
-                                                           sum = sum + lstCart[i].Amount;
-                                                       }
-                                                   }
-                                                </strong>*@
-                                            </h5>
+                                        <h5>Tổng phụ</h5>
+                                        <span id="subtotalAmount">
+                                            <h5><strong class="red">0</strong></h5>
                                         </span>
                                     </div>
-                                    
                                     <button>
-                                        <a href="ThanhToan1/Index">
-                                        Quy trình thanh toán
+                                        <a href="/home/index">
+                                            Tiếp tục mua sắm
                                         </a>
                                     </button>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
                 <div class="clearfix">
                 </div>
-                
+
             </div>
         </div>
         <div class="clearfix">
         </div>
-        
+
     </div>
     <!-- Bootstrap core JavaScript==================================================-->
     <script type="text/javascript" src="~/Content/User/js/jquery-1.10.2.min.js">
@@ -307,5 +261,6 @@
     </script>
     <script type="text/javascript" src="~/Content/User/js/script.min.js">
     </script>
+    
 </body>
-</html
+</html>

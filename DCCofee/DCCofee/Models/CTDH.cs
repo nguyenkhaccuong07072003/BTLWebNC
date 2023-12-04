@@ -18,7 +18,6 @@ namespace DCCofee.Models
         public Nullable<int> IdDH { get; set; }
         public Nullable<int> IdSP { get; set; }
         public Nullable<int> SoLuong { get; set; }
-        public string MoTa { get; set; }
         public Nullable<double> GiaTien { get; set; }
     
         public virtual DONHANG DONHANG { get; set; }

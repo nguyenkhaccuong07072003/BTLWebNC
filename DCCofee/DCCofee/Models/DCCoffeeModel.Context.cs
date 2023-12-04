@@ -15,8 +15,6 @@ namespace DCCofee.Models
     
     public partial class QLQCFEntities : DbContext
     {
-        internal object TaiKhoans;
-
         public QLQCFEntities()
             : base("name=QLQCFEntities")
         {
@@ -38,5 +36,8 @@ namespace DCCofee.Models
         public virtual DbSet<PHIEUXUAT> PHIEUXUAT { get; set; }
         public virtual DbSet<SanPham> SanPham { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<ChiTietGioHang> ChiTietGioHang { get; set; }
+        public virtual DbSet<GioHang> GioHang { get; set; }
+        public virtual DbSet<Giohang1> Giohang1 { get; set; }
     }
 }

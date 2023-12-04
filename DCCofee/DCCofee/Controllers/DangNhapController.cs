@@ -1,11 +1,10 @@
 ﻿using DCCofee.Models;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using System.Web;
 using System.Web.Mvc;
+
 
 namespace DCCofee.Controllers
 {
@@ -29,71 +28,70 @@ namespace DCCofee.Controllers
                 return result.ToString();
             }
         }
-        // GET: DangNhap
-        public ActionResult Index()
+
+
+        // GET: Login
+        public ActionResult DangNhap()
         {
             return View();
         }
 
-        /* [HttpPost]
-         public ActionResult DangNhap(TaiKhoan model, string action)
-         {
-             if (ModelState.IsValid)
-             {
-                 if (action == "login")
-                 {
-                     var f_password = GetMD5(model.MatKhau);
-                     var data = db.TaiKhoans.FirstOrDefault(s => s.TaiKhoan1.Equals(model.TaiKhoan1) && s.MatKhau.Equals(f_password));
+        [HttpPost]
+        public ActionResult DangNhap(NguoiDung model, string action)
+        {
+            if (ModelState.IsValid)
+            {
+                if (action == "login")
+                {
+                    var f_password = GetMD5(model.MatKhau);
+                    var data = db.NguoiDung.FirstOrDefault(s => s.TaiKhoan.Equals(model.TaiKhoan) && s.MatKhau.Equals(f_password));
+                   
+                    if (data != null)
+                    {
+                        Set_User(data.Id);
+                        if (data.VaiTro == 1)
+                        {
+                            // Check if VaiTro is 1 and redirect to a specific action in Home controller
+                            return RedirectToAction("Index", "Home");
+                        }
+                        else
+                        {
+                            return RedirectToAction("DangNhap", "DangNhap");
+                        }
+                      
+                    }
 
-                     if (data != null)
-                     {
-                         // Thêm session
-                         Set_User(data.TaiKhoan1);
+                    else
+                    {
+                        ViewBag.error = "Đăng nhập không thành công";
+                        return View("DangNhap");
+                    }
+                }
+                else if (action == "register")
+                {
+                    var check = db.NguoiDung.FirstOrDefault(s => s.TaiKhoan == model.TaiKhoan);
+                    if (check == null)
+                    {
+                        // Thêm tài khoản mới
+                        model.MatKhau = GetMD5(model.MatKhau);
+                        db.NguoiDung.Add(model);
+                        db.SaveChanges();
 
-                         return RedirectToAction("TrangChu", "TrangChu");
-                     }
+                        Set_User(model.Id);
 
-                     else
-                     {
-                         ViewBag.error = "Đăng nhập không thành công";
-                         return View("DangNhap");
-                     }
-                 }
-                 else if (action == "register")
-                 {
-                     var check = db.TaiKhoans.FirstOrDefault(s => s.TaiKhoan1 == model.TaiKhoan1);
-                     if (check == null)
-                     {
-                         // Thêm tài khoản mới
-                         model.MatKhau = GetMD5(model.MatKhau);
-                         db.TaiKhoans.Add(model);
-                         db.SaveChanges();
+                        return RedirectToAction("Index", "Home");
+                    }
+                    else
+                    {
+                        ViewBag.error = "Email đã tồn tại";
+                        return View("DangNhap");
+                    }
+                }
+            }
+            return View("DangNhap");
+        }
 
-                         // Thêm session
-                         Set_User(model.TaiKhoan1);
 
-                         return RedirectToAction("TrangChu", "TrangChu");
-                     }
-                     else
-                     {
-                         ViewBag.error = "Email đã tồn tại";
-                         return View("DangNhap");
-                     }
-                 }
-             }
-             return View("DangNhap");
-         }
-
-         private void Set_User(object taiKhoan1)
-         {
-             throw new NotImplementedException();
-         }
-     }
-
-     public class TaiKhoan
-     {
-         public string MatKhau { get; internal set; }
-         public object TaiKhoan1 { get; internal set; }
-     }*/
     }
 }
+

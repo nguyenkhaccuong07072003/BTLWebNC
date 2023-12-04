@@ -1,0 +1,68 @@
+﻿@model IEnumerable<DCCofee.Models.DONHANG>
+@{
+    ViewBag.Title = "DanhSachDonHang";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<table class="shop-table">
+    <thead>
+        <tr>
+            <th>
+                Ngày đặt
+            </th>
+            <th>
+                Địa chỉ
+            </th>
+            <th>
+                Tổng tiền
+            </th>
+            <th>
+                Trạng thái
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr style="cursor: pointer;" onclick="location.href='@Url.Action("ChiTietDonHang", new { id = item.Id })'">
+                <td>
+                    @if (item.NgayDat.HasValue)
+                    {
+                        @item.NgayDat.Value.ToShortDateString()
+                    }
+                    else
+                    {
+                        <span>Ngày đặt không xác định</span>
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DiaChi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TongTien)
+                </td>
+                <td>
+                    @if (@item.TrangThai == 0)
+                    {
+                        <h5>Không được xác nhận</h5>
+                        @Html.ActionLink("Hủy đơn", "Xoa_DH", new { id = item.Id })
+                    }
+                    else if (item.TrangThai == 1)
+                    {
+                        <h5>Đã được xác nhận</h5>
+                    }
+                    else
+                    {
+                        <h5>Chưa được xác nhận</h5>
+                    <td>
+                        @Html.ActionLink("Hủy đơn", "Xoa_DH", new { id = item.Id }, new { style = "color: #fe4c50;" })
+
+                    </td>
+                }
+                    </td>
+
+                </tr>
+            }
+    </tbody>
+</table>

@@ -19,9 +19,7 @@ namespace DCCofee.Models.Metadata
         public Nullable<int> SoLuong { get; set; }
         [DisplayName("Mô tả")]
         [Required(ErrorMessage = " Vui lòng nhập mô tả")]
-        public string MoTa { get; set; }
-        [DisplayName("Giá tiền")]
-        [Required(ErrorMessage = " Vui lòng nhập giá tiền")]
+        
         public Nullable<double> GiaTien { get; set; }
 
         public virtual DONHANG DONHANG { get; set; }

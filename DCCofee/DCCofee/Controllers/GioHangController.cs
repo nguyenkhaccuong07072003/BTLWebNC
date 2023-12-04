@@ -14,7 +14,7 @@ namespace DCCofee.Controllers
         public ActionResult Index()
         {
             List<SanPham> sp = db.SanPham.ToList();
-            return View();
+            return View(sp);
         }
         public ActionResult AddToCart(int id)
         {
@@ -50,5 +50,25 @@ namespace DCCofee.Controllers
             Session["Cart"] = lstCart1;
             return RedirectToAction("Index");
         }
+
+        public ActionResult RemoveFromCart(int id)
+        {
+            List<CartMoeldcs> lstCart = (List<CartMoeldcs>)Session["Cart"];
+
+            // Tìm sản phẩm trong giỏ hàng dựa trên id
+            CartMoeldcs itemToRemove = lstCart.FirstOrDefault(item => item.Id == id);
+
+            if (itemToRemove != null)
+            {
+                lstCart.Remove(itemToRemove);
+            }
+
+            // Cập nhật session với giỏ hàng đã được chỉnh sửa
+            Session["Cart"] = lstCart;
+
+            // Chuyển hướng về trang giỏ hàng
+            return RedirectToAction("Index");
+        }
+
     }
 }

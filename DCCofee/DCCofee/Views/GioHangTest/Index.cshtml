@@ -1,0 +1,269 @@
+﻿
+@model IEnumerable<DCCofee.Models.ChiTietGioHang>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="~/Content/User/~/Content/User/images/favicon.png">
+    <title>
+        Welcome to FlatShop
+    </title>
+    <link href="~/Content/User/css/bootstrap.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,700,500italic,100italic,100' rel='stylesheet' type='text/css'>
+    <link href="~/Content/User/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/Content/User/css/flexslider.css" type="text/css" media="screen" />
+    <link href="~/Content/User/css/style.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+    <div class="wrapper">
+
+        <div class="clearfix">
+        </div>
+        <div class="container_fullwidth">
+            <div class="container shopping-cart">
+                <div class="row" >
+                    <div><h5 style="margin-left: -20px;margin-bottom: 40px;">@Html.ActionLink("Đơn hàng của bạn", "DanhSachDonHang", "DatHang", null, new { style = "color: #fe4c50;" })</h5></div>
+                    <div class="col-md-12">
+                        <h3 class="title">
+                            Giỏ hàng
+                        </h3>
+                        <div class="clearfix">
+                        </div>
+                        <table class="shop-table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Ảnh sản phẩm
+                                    </th>
+                                    <th>
+                                        Tên sản phẩm
+                                    </th>
+                                    <th>
+                                        Giá
+                                    </th>
+                                    <th>
+                                        SL
+                                    </th>
+                                    <th>
+                                        Giá
+                                    </th>
+                                    <th>
+                                        Xóa
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @if (!string.IsNullOrEmpty(item.HinhAnh))
+                                            {
+                                                <img src="@Url.Content(item.HinhAnh)" style="max-width:70px;height:auto" alt="Ảnh sản phẩm" />
+                                            }
+                                        </td>
+                                        <td>
+                                            @item.SanPham.TenSP
+                                        </td>
+                                        <td class="soluong_number">
+                                            <div style="display:flex">
+                                                <div class="number down">
+                                                    @if (item.SoLuong > 1)
+                                                    {
+                                                        @Html.ActionLink("-", "up_number", "GioHangTest", new { id_ctgh = item.ID_ChiTietGiohang, number = -1 }, new { @class = "quantity-                        link" })
+                                                    }
+                                                </div>
+                                                @item.SoLuong
+                                                <div class="number up">
+                                                    @Html.ActionLink("+", "up_number", "GioHangTest", new { id_ctgh = item.ID_ChiTietGiohang, number = +1 }, new { @class = "quantity-link" })
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            @item.DonGia
+                                        </td>
+
+                                        <td>
+                                            @{
+                                                double tempTong = (double)(item.DonGia * item.SoLuong);
+                                                item.Tong = tempTong;
+
+                                                @item.Tong
+
+                                            }
+                                        </td>
+                                        <td>
+                                            @Html.ActionLink("Xóa", "xoa_sanpham", new { id_ctgh = item.ID_ChiTietGiohang }, new { style = "color: #fe4c50;" })
+                                        </td>
+                                    </tr>
+                                }
+
+                            </tbody>
+                        </table>
+                        @{
+                            double tongtien = 0;
+                            foreach (var item in Model)
+                            {
+                                tongtien += (double)item.Tong;
+                            }
+                        }
+
+
+                        <div style="display: flex; flex-direction: column; margin-top: 20px;">
+                            <button class="pull-right" style="margin-left: 950px">
+                                @Html.ActionLink("Đặt hàng", "form_DatHang")
+                            </button>
+                        </div>
+                    </div>
+
+
+
+
+
+
+                </div>
+                <div class="clearfix">
+                </div>
+                <div class="row">
+                    <div class="col-md-4 col-sm-6">
+                        <div class="shippingbox">
+                            <h5>
+                                Ước tính vận chuyển và thuế
+                            </h5>
+                            <form>
+                                <label>
+                                    Chọn quốc gia *
+                                </label>
+                                <select class="">
+                                    <option value="AL">
+                                        Việt Nam
+                                    </option>
+                                    <option value="AK">
+                                        Thái Lan
+                                    </option>
+                                    <option value="AZ">
+                                        Nhật bản
+                                    </option>
+                                    <option value="AR">
+                                        Mỹ
+                                    </option>
+                                    <option value="CA">
+                                        Ấn Độ
+                                    </option>
+
+                                </select>
+                                <label>
+                                    Vùng / Miền *
+                                </label>
+                                <select class="">
+                                    <option value="AL">
+                                        Hà Nội
+                                    </option>
+                                    <option value="AK">
+                                        Sài Gòn
+                                    </option>
+                                    <option value="AZ">
+                                        Nghệ An
+                                    </option>
+                                    <option value="AR">
+                                        Hà Tĩnh
+                                    </option>
+                                    <option value="CA">
+                                        Tokyo
+                                    </option>
+
+                                </select>
+                                <label>
+                                    Mã code *
+                                </label>
+                                <select class="">
+                                    <option value="AL">
+                                        Việt Nam
+                                    </option>
+                                    <option value="AK">
+                                        Lào
+                                    </option>
+                                    <option value="AZ">
+                                        Campuchia
+                                    </option>
+                                    <option value="AR">
+                                        Nhật Bản
+                                    </option>
+
+                                </select>
+                                <div class="clearfix">
+                                </div>
+                                <button>
+                                    Nhận báo giá
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="shippingbox">
+                            <h5>
+                                Mã ưu đãi
+                            </h5>
+                            <form>
+                                <label>
+                                    Nhập mã ưu đãi của bạn nếu có
+                                </label>
+                                <input type="text" name="">
+                                <div class="clearfix">
+                                </div>
+                                <button>
+                                    Nhận báo giá
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="shippingbox">
+                            <div class="subtotal">
+                                <h5>Tổng phụ</h5>
+                                <span id="subtotalAmount">
+                                    <h5><strong class="red">@tongtien</strong></h5>
+                                </span>
+                            </div>
+                            <button>
+                                <a href="/home/index">
+                                    Tiếp tục mua sắm
+                                </a>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="clearfix">
+        </div>
+
+    </div>
+    </div>
+    <div class="clearfix">
+    </div>
+
+    </div>
+    <!-- Bootstrap core JavaScript==================================================-->
+    <script type="text/javascript" src="~/Content/User/js/jquery-1.10.2.min.js">
+    </script>
+    <script type="text/javascript" src="~/Content/User/js/bootstrap.min.js">
+    </script>
+    <script defer src="~/Content/User/js/jquery.flexslider.js">
+    </script>
+    <script type="text/javascript" src="~/Content/User/js/jquery.carouFredSel-6.2.1-packed.js">
+    </script>
+    <script type="text/javascript" src="~/Content/User/js/script.min.js">
+    </script>
+
+</body>
+</html>

@@ -18,6 +18,7 @@ namespace DCCofee.Models
         public SanPham()
         {
             this.CTDH = new HashSet<CTDH>();
+            this.ChiTietGioHang = new HashSet<ChiTietGioHang>();
         }
     
         public int Id { get; set; }
@@ -28,5 +29,7 @@ namespace DCCofee.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CTDH> CTDH { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ChiTietGioHang> ChiTietGioHang { get; set; }
     }
 }

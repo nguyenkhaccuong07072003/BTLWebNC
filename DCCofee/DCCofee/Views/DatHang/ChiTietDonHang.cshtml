@@ -1,0 +1,35 @@
+﻿@model IEnumerable<DCCofee.Models.CTDH>
+@{
+    ViewBag.Title = "ChiTietDonHang";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<table class="shop-table">
+    <thead>
+        <tr>
+            <th>Tên sản phẩm</th>
+            <th>Địa chỉ</th>
+            <th>Tổng</th>
+            <th>Số lượng</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)8
+        {
+            <tr>
+                <td>@item.SanPham.TenSP</td>
+                <td>@item.DONHANG.DiaChi</td>
+                <td>@item.GiaTien</td>
+                <td>@item.SoLuong</td>
+                <td>
+                    @{
+                        double tempTong = (double)(item.GiaTien * item.SoLuong);
+                        @tempTong
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

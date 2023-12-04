@@ -5,50 +5,7 @@
     Layout = "~/Views/Shared/_LayoutUser.cshtml";
 }
 
-@*<h2>Index</h2>
 
-    <div>
-        <h4>SanPham</h4>
-        <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.TenSP)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.TenSP)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Mota)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Mota)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.DonGia)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.DonGia)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.AnhSP)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.AnhSP)
-            </dd>
-
-        </dl>
-    </div>
-    <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-        @Html.ActionLink("Back to List", "Index")
-    </p>*@
 <!DOCTYPE html>
 <html>
 <head>
@@ -85,7 +42,7 @@
                                 <div class="preview-small" style="justify-content:center;align-items:center;display:flex;">
                                     <img id="" src="~/Content/User/images/products/medium/cf campuchino.jpg" data-zoom-image="~/Content/User/images/products/Large/cf campuchino.jpg" alt="">
                                 </div>
-                                <div class="thum-image">
+                               @* <div class="thum-image">
                                     <ul id="gallery_01" class="prev-thum">
                                         <li>
                                             <a href="#" data-image="~/Content/User/images/products/medium/cf campuchino.jpg" data-zoom-image="~/Content/User/images/products/Large/cf campuchino.jpg">
@@ -121,11 +78,11 @@
                                         <i class="fa fa-chevron-right">
                                         </i>
                                     </a>
-                                </div>
+                                </div>*@
                             </div>
                             <div class="products-description">
                                 <h5 class="name">
-                                    Cafe Cappuccino - Hương vị cà phê Ý chuẩn vị
+                                    @Model.TenSP
                                 </h5>
                                 <p>
                                     <img alt="" src="~/Content/User/images/star.png">
@@ -140,38 +97,33 @@
                                     </span>
                                 </p>
                                 <p>
-                                    Cà phê Cappuccino là một loại cà phê espresso được phủ lên trên một lớp kem sữa béo ngậy, có nguồn gốc từ Ý. Cappuccino có hương vị cà phê đậm đà, thơm ngon, hòa quyện cùng lớp kem sữa ngọt ngào, tạo nên một thức uống hấp dẫn, kích thích vị giác.
+                                   @Model.Mota
                                 </p>
                                 <hr class="border">
                                 <div class="price">
                                     Giá :
                                     <span class="new_price">
-                                        45.000
+                                        @Model.DonGia
                                         <sup>
                                             đ
                                         </sup>
                                     </span>
-                                    <span class="old_price">
-                                        50.000
-                                        <sup>
-                                            đ
-                                        </sup>
-                                    </span>
+                                    
                                 </div>
                                 <hr class="border">
-                                <div class="wided">
-                                    <div class="qty">
-                                        SL &nbsp;&nbsp;:
-                                        <select>
-                                            <option>
-                                                1
-                                            </option>
-                                        </select>
-                                    </div>
+                                <div class="wided" style=" margin-left: -150px">
+                                   
                                     <div class="button_group">
                                         <button class="button">
-                                           Thêm vào giỏ hàng
-                                        </button>
+                                            @if (Session["id"] != null)
+                                            {
+                                                @Html.ActionLink("Thêm giỏ hàng", "AddToCart", "GioHangTest", new { sanpham = Model.Id }, "")
+                                            }
+                                            else
+                                            {
+                                                @Html.ActionLink("Thêm giỏ hàng", "DangNhap", "DangNhap")
+                                            }
+                                        </button> 
                                         <button class="button compare">
                                             <i class="fa fa-exchange">
                                             </i>
@@ -192,622 +144,18 @@
                                 <img src="~/Content/User/images/share.png" alt="" class="pull-right">
                             </div>
                         </div>
+                      
                         <div class="clearfix">
                         </div>
-                        <div class="tab-box">
-                            <div id="tabnav">
-                                <ul>
-                                    <li>
-                                        <a href="#Descraption">
-                                           Mô tả
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#Reviews">
-                                            Đánh giá
-                                        </a>
-                                    </li>
-                                   
-                                </ul>
-                            </div>
-                            <div class="tab-content-wrap">
-                                <div class="tab-content" id="Descraption">
-                                    <p>
-                                        Cafe Cappuccino - Hương vị cà phê Ý chuẩn vị
-                                    </p>
-                                    <p>
-                                        Thành phần:Cà phê Cappuccino được làm từ các nguyên liệu chính là cà phê espresso, sữa tươi và kem sữa. Cà phê espresso được pha chế từ hạt cà phê rang xay kỹ, tạo nên hương vị cà phê đậm đà, thơm ngon. Sữa tươi được sử dụng để tạo nên lớp kem sữa béo ngậy, thơm ngọt. Kem sữa được làm từ sữa tươi và đường, tạo nên lớp bọt sữa dày mịn, hòa quyện cùng cà phê espresso tạo nên hương vị Cappuccino đặc trưng.
-                                    </p>
-                                    <p>
-                                        Có nhiều loại Cappuccino khác nhau, tùy theo cách pha chế và hương vị của lớp kem sữa. Một số loại Cappuccino phổ biến bao gồm:Cappuccino truyền thống: Loại Cappuccino này có lớp kem sữa màu trắng, được làm từ sữa tươi và đường; Cappuccino Mocha: Loại Cappuccino này có lớp kem sữa màu nâu, được làm từ sữa tươi, đường và cacao;Cappuccino Caramel: Loại Cappuccino này có lớp kem sữa màu vàng, được làm từ sữa tươi, đường và caramel.
-                                    </p>
-                                    <p>
-                                        Cà phê Cappuccino có nhiều công dụng tốt cho sức khỏe, bao gồm:Giúp tỉnh táo, tập trung tinh thần; Tăng cường khả năng trao đổi chất, giúp giảm cân; Giảm nguy cơ mắc các bệnh tim mạch, tiểu đường; Tăng cường hệ miễn dịch
-                                </div>
-                                @*<div class="tab-content" id="Reviews">
-                                    <form>
-                                        <table>
-                                            <thead>
-                                                <tr>
-                                                    <th>
-                                                        &nbsp;
-                                                    </th>
-                                                    <th>
-                                                        1 star
-                                                    </th>
-                                                    <th>
-                                                        2 stars
-                                                    </th>
-                                                    <th>
-                                                        3 stars
-                                                    </th>
-                                                    <th>
-                                                        4 stars
-                                                    </th>
-                                                    <th>
-                                                        5 stars
-                                                    </th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>
-                                                        Quality
-                                                    </td>
-                                                    <td>
-                                                        <input type="radio" name="quality" value="Blue" />
-                                                    </td>
-                                                    <td>
-                                                        <input type="radio" name="quality" value="">
-                                                    </td>
-                                                    <td>
-                                                        <input type="radio" name="quality" value="">
-                                                    </td>
-                                                    <td>
-                                                        <input type="radio" name="quality" value="">
-                                                    </td>
-                                                    <td>
-                                                        <input type="radio" name="quality" value="">
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        Price
-                                                    </td>
-                                                    <td>
-                                                        <input type="radio" name="price" value="">
-                                                    </td>
-                                                    <td>
-                                                        <input type="radio" name="price" value="">
-                                                    </td>
-                                                    <td>
-                                                        <input type="radio" name="price" value="">
-                                                    </td>
-                                                    <td>
-                                                        <input type="radio" name="price" value="">
-                                                    </td>
-                                                    <td>
-                                                        <input type="radio" name="price" value="">
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        Value
-                                                    </td>
-                                                    <td>
-                                                        <input type="radio" name="value" value="">
-                                                    </td>
-                                                    <td>
-                                                        <input type="radio" name="value" value="">
-                                                    </td>
-                                                    <td>
-                                                        <input type="radio" name="value" value="">
-                                                    </td>
-                                                    <td>
-                                                        <input type="radio" name="value" value="">
-                                                    </td>
-                                                    <td>
-                                                        <input type="radio" name="value" value="">
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                        <div class="row">
-                                            <div class="col-md-6 col-sm-6">
-                                                <div class="form-row">
-                                                    <label class="lebel-abs">
-                                                        Your Name
-                                                        <strong class="red">
-                                                            *
-                                                        </strong>
-                                                    </label>
-                                                    <input type="text" name="" class="input namefild">
-                                                </div>
-                                                <div class="form-row">
-                                                    <label class="lebel-abs">
-                                                        Your Email
-                                                        <strong class="red">
-                                                            *
-                                                        </strong>
-                                                    </label>
-                                                    <input type="email" name="" class="input emailfild">
-                                                </div>
-                                                <div class="form-row">
-                                                    <label class="lebel-abs">
-                                                        Summary of You Review
-                                                        <strong class="red">
-                                                            *
-                                                        </strong>
-                                                    </label>
-                                                    <input type="text" name="" class="input summeryfild">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6 col-sm-6">
-                                                <div class="form-row">
-                                                    <label class="lebel-abs">
-                                                        Your Name
-                                                        <strong class="red">
-                                                            *
-                                                        </strong>
-                                                    </label>
-                                                    <textarea class="input textareafild" name="" rows="7">
-                            </textarea>
-                                                </div>
-                                                <div class="form-row">
-                                                    <input type="submit" value="Submit" class="button">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>*@
-                                @*<div class="tab-content">
-                                    <div class="review">
-                                        <p class="rating">
-                                            <i class="fa fa-star light-red">
-                                            </i>
-                                            <i class="fa fa-star light-red">
-                                            </i>
-                                            <i class="fa fa-star light-red">
-                                            </i>
-                                            <i class="fa fa-star-half-o gray">
-                                            </i>
-                                            <i class="fa fa-star-o gray">
-                                            </i>
-                                        </p>
-                                        <h5 class="reviewer">
-                                            Reviewer name
-                                        </h5>
-                                        <p class="review-date">
-                                            Date: 01-01-2014
-                                        </p>
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer a eros neque. In sapien est, malesuada non interdum id, cursus vel neque.
-                                        </p>
-                                    </div>
-                                    <div class="review">
-                                        <p class="rating">
-                                            <i class="fa fa-star light-red">
-                                            </i>
-                                            <i class="fa fa-star light-red">
-                                            </i>
-                                            <i class="fa fa-star light-red">
-                                            </i>
-                                            <i class="fa fa-star-half-o gray">
-                                            </i>
-                                            <i class="fa fa-star-o gray">
-                                            </i>
-                                        </p>
-                                        <h5 class="reviewer">
-                                            Reviewer name
-                                        </h5>
-                                        <p class="review-date">
-                                            Date: 01-01-2014
-                                        </p>
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer a eros neque. In sapien est, malesuada non interdum id, cursus vel neque.
-                                        </p>
-                                    </div>
-                                </div>*@
-                                @*<div class="tab-content" id="tags">
-                                    <div class="tag">
-                                        Add Tags :
-                                        <input type="text" name="">
-                                        <input type="submit" value="Tag">
-                                    </div>
-                                </div>*@
-                            </div>
-                        </div>
-                        <div class="clearfix">
-                        </div>
-                        <div id="productsDetails" class="hot-products">
-                            <h3 class="title">
-                                <strong>
-                                    Hot
-                                </strong>
-                                Products
-                            </h3>
-                            <div class="control">
-                                <a id="prev_hot" class="prev" href="#">
-                                    &lt;
-                                </a>
-                                <a id="next_hot" class="next" href="#">
-                                    &gt;
-                                </a>
-                            </div>
-                            <ul id="hot">
-                                <li>
-                                    <div class="row">
-                                        <div class="col-md-4 col-sm-4">
-                                            <div class="products">
-                                                <div class="offer">
-                                                    - %20
-                                                </div>
-                                                <div class="thumbnail">
-                                                    <img src="~/Content/User/images/products/small/rsbánh Pastry Cherry Strudel.jpg" alt="Product Name">
-                                                </div>
-                                                <div class="productname">
-                                                    Bánh Pastry Cherry Strudel
-                                                </div>
-                                                <h4 class="price">
-                                                    55.000 đ
-                                                </h4>
-                                                <div class="button_group">
-                                                    <button class="button add-cart" type="button">
-                                                        Thêm vào giỏ hàng
-                                                    </button>
-                                                    <button class="button compare" type="button">
-                                                        <i class="fa fa-exchange">
-                                                        </i>
-                                                    </button>
-                                                    <button class="button wishlist" type="button">
-                                                        <i class="fa fa-heart-o">
-                                                        </i>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 col-sm-4">
-                                            <div class="products">
-                                                <div class="thumbnail">
-                                                    <img src="~/Content/User/images/products/small/rs cf sương sáo (1).jpg" alt="Product Name">
-                                                </div>
-                                                <div class="productname">
-                                                   Cafe sương sáo
-                                                </div>
-                                                <h4 class="price">
-                                                    50.000 đ
-                                                </h4>
-                                                <div class="button_group">
-                                                    <button class="button add-cart" type="button">
-                                                        Thêm vào giỏ hàng
-                                                    </button>
-                                                    <button class="button compare" type="button">
-                                                        <i class="fa fa-exchange">
-                                                        </i>
-                                                    </button>
-                                                    <button class="button wishlist" type="button">
-                                                        <i class="fa fa-heart-o">
-                                                        </i>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 col-sm-4">
-                                            <div class="products">
-                                                <div class="offer">
-                                                    New
-                                                </div>
-                                                <div class="thumbnail">
-                                                    <img src="~/Content/User/images/products/small/rs milo dầm (1).jpg" alt="Product Name">
-                                                </div>
-                                                <div class="productname">
-                                                    Milo dầm thơm ngon
-                                                </div>
-                                                <h4 class="price">
-                                                   35.000 đ
-                                                </h4>
-                                                <div class="button_group">
-                                                    <button class="button add-cart" type="button">
-                                                       Thêm vào giỏ hàng
-                                                    </button>
-                                                    <button class="button compare" type="button">
-                                                        <i class="fa fa-exchange">
-                                                        </i>
-                                                    </button>
-                                                    <button class="button wishlist" type="button">
-                                                        <i class="fa fa-heart-o">
-                                                        </i>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    @*<div class="row">
-                                        <div class="col-md-4 col-sm-4">
-                                            <div class="products">
-                                                <div class="offer">
-                                                    - %20
-                                                </div>
-                                                <div class="thumbnail">
-                                                    <img src="~/Content/User/images/products/small/products-01.png" alt="Product Name">
-                                                </div>
-                                                <div class="productname">
-                                                    Iphone 5s Gold 32 Gb 2013
-                                                </div>
-                                                <h4 class="price">
-                                                    $451.00
-                                                </h4>
-                                                <div class="button_group">
-                                                    <button class="button add-cart" type="button">
-                                                        Add To Cart
-                                                    </button>
-                                                    <button class="button compare" type="button">
-                                                        <i class="fa fa-exchange">
-                                                        </i>
-                                                    </button>
-                                                    <button class="button wishlist" type="button">
-                                                        <i class="fa fa-heart-o">
-                                                        </i>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 col-sm-4">
-                                            <div class="products">
-                                                <div class="thumbnail">
-                                                    <img src="~/Content/User/images/products/small/products-02.png" alt="Product Name">
-                                                </div>
-                                                <div class="productname">
-                                                    Iphone 5s Gold 32 Gb 2013
-                                                </div>
-                                                <h4 class="price">
-                                                    $451.00
-                                                </h4>
-                                                <div class="button_group">
-                                                    <button class="button add-cart" type="button">
-                                                        Add To Cart
-                                                    </button>
-                                                    <button class="button compare" type="button">
-                                                        <i class="fa fa-exchange">
-                                                        </i>
-                                                    </button>
-                                                    <button class="button wishlist" type="button">
-                                                        <i class="fa fa-heart-o">
-                                                        </i>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 col-sm-4">
-                                            <div class="products">
-                                                <div class="offer">
-                                                    New
-                                                </div>
-                                                <div class="thumbnail">
-                                                    <img src="~/Content/User/images/products/small/products-03.png" alt="Product Name">
-                                                </div>
-                                                <div class="productname">
-                                                    Iphone 5s Gold 32 Gb 2013
-                                                </div>
-                                                <h4 class="price">
-                                                    $451.00
-                                                </h4>
-                                                <div class="button_group">
-                                                    <button class="button add-cart" type="button">
-                                                        Add To Cart
-                                                    </button>
-                                                    <button class="button compare" type="button">
-                                                        <i class="fa fa-exchange">
-                                                        </i>
-                                                    </button>
-                                                    <button class="button wishlist" type="button">
-                                                        <i class="fa fa-heart-o">
-                                                        </i>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>*@
-                                </li>
-                                <li>
-                                    @*<div class="row">
-                                        <div class="col-md-4 col-sm-4">
-                                            <div class="products">
-                                                <div class="offer">
-                                                    - %20
-                                                </div>
-                                                <div class="thumbnail">
-                                                    <img src="~/Content/User/images/products/small/products-01.png" alt="Product Name">
-                                                </div>
-                                                <div class="productname">
-                                                    Iphone 5s Gold 32 Gb 2013
-                                                </div>
-                                                <h4 class="price">
-                                                    $451.00
-                                                </h4>
-                                                <div class="button_group">
-                                                    <button class="button add-cart" type="button">
-                                                        Add To Cart
-                                                    </button>
-                                                    <button class="button compare" type="button">
-                                                        <i class="fa fa-exchange">
-                                                        </i>
-                                                    </button>
-                                                    <button class="button wishlist" type="button">
-                                                        <i class="fa fa-heart-o">
-                                                        </i>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 col-sm-4">
-                                            <div class="products">
-                                                <div class="thumbnail">
-                                                    <img src="~/Content/User/images/products/small/products-02.png" alt="Product Name">
-                                                </div>
-                                                <div class="productname">
-                                                    Iphone 5s Gold 32 Gb 2013
-                                                </div>
-                                                <h4 class="price">
-                                                    $451.00
-                                                </h4>
-                                                <div class="button_group">
-                                                    <button class="button add-cart" type="button">
-                                                        Add To Cart
-                                                    </button>
-                                                    <button class="button compare" type="button">
-                                                        <i class="fa fa-exchange">
-                                                        </i>
-                                                    </button>
-                                                    <button class="button wishlist" type="button">
-                                                        <i class="fa fa-heart-o">
-                                                        </i>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 col-sm-4">
-                                            <div class="products">
-                                                <div class="offer">
-                                                    New
-                                                </div>
-                                                <div class="thumbnail">
-                                                    <img src="~/Content/User/images/products/small/products-03.png" alt="Product Name">
-                                                </div>
-                                                <div class="productname">
-                                                    Iphone 5s Gold 32 Gb 2013
-                                                </div>
-                                                <h4 class="price">
-                                                    $451.00
-                                                </h4>
-                                                <div class="button_group">
-                                                    <button class="button add-cart" type="button">
-                                                        Add To Cart
-                                                    </button>
-                                                    <button class="button compare" type="button">
-                                                        <i class="fa fa-exchange">
-                                                        </i>
-                                                    </button>
-                                                    <button class="button wishlist" type="button">
-                                                        <i class="fa fa-heart-o">
-                                                        </i>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>*@
-                                </li>
-                            </ul>
-                        </div>
+
                         <div class="clearfix">
                         </div>
                     </div>
                     <div class="col-md-3">
-                        <div class="special-deal leftbar">
-                            <h4 class="title">
-                                Ưu đãi
-                                <strong>
-                                    đặc biệt
-                                </strong>
-                            </h4>
-                            <div class="special-item">
-                                <div class="product-image">
-                                    <a href="#">
-                                        <img src="~/Content/User/images/products/thum/rs nước ép dưa hấu (1).jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="product-info">
-                                    <p>
-                                        Nước ép dưa hấu
-                                    </p>
-                                    <h5 class="price">
-                                        25.000 đ
-                                    </h5>
-                                </div>
-                            </div>
-                            <div class="special-item">
-                                <div class="product-image">
-                                    <a href="#">
-                                        <img src="~/Content/User/images/products/thum/rs bánh kem scl (1).jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="product-info">
-                                    <p>
-                                        Bánh kem socola
-                                    </p>
-                                    <h5 class="price">
-                                        50.000 đ
-                                    </h5>
-                                </div>
-                            </div>
-                            <div class="special-item">
-                                <div class="product-image">
-                                    <a href="#">
-                                        <img src="~/Content/User/images/products/thum/rs cf espresso (1).jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="product-info">
-                                    <p>
-                                       Cafe espresso
-                                    </p>
-                                    <h5 class="price">
-                                        55.000 đ
-                                    </h5>
-                                </div>
-                            </div>
-                        </div>
+                      
                         <div class="clearfix">
                         </div>
-                        <div class="product-tag leftbar">
-                            <h3 class="title">
-                                Thêm
-                                <strong>
-                                    Topping
-                                </strong>
-                            </h3>
-                            <ul>
-                                <li>
-                                    <a href="#">
-                                        Thêm đường
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        Thêm trân châu
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        Thêm kem chesse
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        Thêm thạch
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        Nguyên chất
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        Ít đường
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        Không đá
-                                    </a>
-                                </li>
-                                
-                            </ul>
-                        </div>
-                        <div class="clearfix">
-                        </div>
+                       
                         <div class="get-newsletter leftbar">
                             <h3 class="title">
                                 Nhận

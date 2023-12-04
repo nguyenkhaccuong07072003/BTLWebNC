@@ -5,7 +5,6 @@
       <EntityTypeMapping TypeName="QLQCFModel.CTDH">
         <MappingFragment StoreEntitySet="CTDH">
           <ScalarProperty Name="GiaTien" ColumnName="GiaTien" />
-          <ScalarProperty Name="MoTa" ColumnName="MoTa" />
           <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
           <ScalarProperty Name="IdSP" ColumnName="IdSP" />
           <ScalarProperty Name="IdDH" ColumnName="IdDH" />
@@ -36,6 +35,7 @@
     <EntitySetMapping Name="DONHANG">
       <EntityTypeMapping TypeName="QLQCFModel.DONHANG">
         <MappingFragment StoreEntitySet="DONHANG">
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
           <ScalarProperty Name="TongTien" ColumnName="TongTien" />
           <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
           <ScalarProperty Name="NgayDat" ColumnName="NgayDat" />
@@ -121,6 +121,35 @@
           <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
           <ScalarProperty Name="principal_id" ColumnName="principal_id" />
           <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChiTietGioHang">
+      <EntityTypeMapping TypeName="QLQCFModel.ChiTietGioHang">
+        <MappingFragment StoreEntitySet="ChiTietGioHang">
+          <ScalarProperty Name="HinhAnh" ColumnName="HinhAnh" />
+          <ScalarProperty Name="Tong" ColumnName="Tong" />
+          <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+          <ScalarProperty Name="ID_SanPham" ColumnName="ID_SanPham" />
+          <ScalarProperty Name="ID_Giohang" ColumnName="ID_Giohang" />
+          <ScalarProperty Name="ID_ChiTietGiohang" ColumnName="ID_ChiTietGiohang" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GioHang">
+      <EntityTypeMapping TypeName="QLQCFModel.GioHang">
+        <MappingFragment StoreEntitySet="GioHang">
+          <ScalarProperty Name="ID_KhachHang" ColumnName="ID_KhachHang" />
+          <ScalarProperty Name="ID_GioHang" ColumnName="ID_GioHang" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Giohang1">
+      <EntityTypeMapping TypeName="QLQCFModel.Giohang1">
+        <MappingFragment StoreEntitySet="Giohang1">
+          <ScalarProperty Name="ID_KhachHang" ColumnName="ID_KhachHang" />
+          <ScalarProperty Name="ID_GioHang" ColumnName="ID_GioHang" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

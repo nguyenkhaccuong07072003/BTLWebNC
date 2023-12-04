@@ -5,13 +5,13 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="b0c8ea1bf9a34873ac8d0a7ec802558d" Name="Diagram1" ZoomLevel="74">
-        <EntityTypeShape EntityType="QLQCFModel.CTDH" Width="1.5" PointX="5.25" PointY="4.5" />
+        <EntityTypeShape EntityType="QLQCFModel.CTDH" Width="1.875" PointX="5.25" PointY="4.5" />
         <EntityTypeShape EntityType="QLQCFModel.CTPN" Width="1.5" PointX="8.25" PointY="8.125" />
         <EntityTypeShape EntityType="QLQCFModel.CTPX" Width="1.5" PointX="5.25" PointY="12" />
         <EntityTypeShape EntityType="QLQCFModel.DONHANG" Width="1.5" PointX="3" PointY="4.625" />
         <EntityTypeShape EntityType="QLQCFModel.HangHoa" Width="1.5" PointX="6" PointY="0.875" />
         <EntityTypeShape EntityType="QLQCFModel.NCC" Width="1.5" PointX="3.75" PointY="8.125" />
-        <EntityTypeShape EntityType="QLQCFModel.NguoiDung" Width="1.5" PointX="0.75" PointY="5.5" />
+        <EntityTypeShape EntityType="QLQCFModel.NguoiDung" Width="1.5" PointX="0.625" PointY="8.625" />
         <EntityTypeShape EntityType="QLQCFModel.PHIEUNHAP" Width="1.5" PointX="6" PointY="7.875" />
         <EntityTypeShape EntityType="QLQCFModel.PHIEUXUAT" Width="1.5" PointX="3" PointY="11.125" />
         <EntityTypeShape EntityType="QLQCFModel.SanPham" Width="1.5" PointX="3" PointY="0.75" />
@@ -26,6 +26,14 @@
         <AssociationConnector Association="QLQCFModel.FK__PHIEUNHAP__IdNCC__75A278F5" />
         <AssociationConnector Association="QLQCFModel.FK__PHIEUNHAP__IdNV__76969D2E" />
         <AssociationConnector Association="QLQCFModel.FK__PHIEUXUAT__IdNV__7D439ABD" />
+        <EntityTypeShape EntityType="QLQCFModel.ChiTietGioHang" Width="1.5" PointX="8.25" PointY="0.75" />
+        <EntityTypeShape EntityType="QLQCFModel.GioHang" Width="1.5" PointX="8.875" PointY="14.5" />
+        <AssociationConnector Association="QLQCFModel.FK_ChiTietGioHang_GioHang" />
+        <AssociationConnector Association="QLQCFModel.FK_ChiTietGioHang_SanPham" />
+        <EntityTypeShape EntityType="QLQCFModel.Giohang1" Width="1.5" PointX="2.125" PointY="15.125" />
+        <AssociationConnector Association="QLQCFModel.FK_ChiTietGioHang_Giohang1" />
+        <AssociationConnector Association="QLQCFModel.FK_GioHang_NguoiDung" />
+        <AssociationConnector Association="QLQCFModel.FK_Giohang1_NguoiDung" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
